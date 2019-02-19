@@ -1,15 +1,24 @@
 import React, { PureComponent }from 'react';
 import figlet from 'figlet';
+import domToImage from 'dom-to-image';
 
 class App extends PureComponent {
+  constructor(props) {
+    super(props);
+
+    this.formattedTextRef = React.createRef();
+  }
+
   state = {
     count: 0,
     text: '',
-    formattedText: ''
+    formattedText: '',
+    font:'Ghost',
+    img: ''
   };
 
   formatText = () => {
-    const font = 'Ghost';
+    const { font } = this.state;
     figlet.text(this.state.text, 
       { font },
       (err, formattedText) => {
@@ -18,6 +27,15 @@ class App extends PureComponent {
     });
   };
 
+  textToImage = event => {
+    event.preventDefault();
+    domToImage.toPng(this.formattedTextRef.current)
+    .then(img => {
+      this.setState({ img });
+    });
+  };
+
+  
 handleClick = () => {
   const { count } = this.state;
   this.setState({ count: count + 1 }, () => {
@@ -25,26 +43,35 @@ handleClick = () => {
   }); 
 };
 handleChange = ({ target }) => {
-  this.setState({ [target.name]: target.value }, () =>{
+  this.setState({ [target.name]: target.value }, () => {
     this.formatText();
   });
-
 };
 
   render() {
-    const { text, formattedText } = this.state;
+    const { text, formattedText, font, img } = this.state;
+    const fontOptions = ['Ghost', 'Georgia11', 'Basic'].map(f => {
+      return <option key={f} value={f}>{f}</option>;
+    });
+
     return (
       <>
-      <h1>Hello</h1>
-      <h2><pre>{formattedText}</pre></h2>
-      <button onClick={this.handleClick}>click</button>
-      <input type="text" name="text" value={text} onChange={this.handleChange} />
-      <h2>{text}</h2>
+      <form onSubmit={this.textToImage}>
+        <select name="font" onChange={this.handleChange} value={font}>
+        {fontOptions}
+        </select>
+        <input type="text" name="text" value={text} onChange={this.handleChange} />
+        <button type="submit">Create Image</button>
+      </form>
+        <h1>Hello</h1>
+        <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
+        {img && <img src={img} />}
+        <h2>{text}</h2>
+        <button onClick={this.handleClick}>click</button>
       </>
     );
   }
+
 }
-
-
 
 export default App;
