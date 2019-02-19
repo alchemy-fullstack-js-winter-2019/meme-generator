@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
+import styles from '../components/css/App.css';
+import domToImage from 'dom-to-image';
 
 export default class App extends PureComponent {
 
@@ -7,7 +9,9 @@ export default class App extends PureComponent {
   state = {
     count: 0, 
     text: 'custom text',
-    formattedText: ''
+    formatedText: '',
+    font: 'Chunky',
+    img: ''
   }
 
   handleClick = () => {
@@ -21,23 +25,32 @@ export default class App extends PureComponent {
   }
 
   formatText = () => {
-    figlet.text(this.state.text, {
-      font: 'Ghost',
-      horizontalLayout: 'default',
-      verticalLayout: 'default'
-    }, (err, formattedText) => {
-      this.setState({ formattedText });
-      console.log({ formattedText });
-    });
+    const { font } = this.state;
+    figlet.text(this.state.text,
+      { font },
+      (err, formatedText) => {
+        this.setState({ formatedText });
+      });
   }
  
   render() {
+
+    const fontList = ['Chunky', 'Arrows', 'Bubble', 'Catwalk', 'Computer'].map(font => {
+      return <option key={font} value={font}>{font}</option>;
+    });
+
     return (
       <>
-      <h1>hi</h1>
+      <h1>Hi</h1>
+      <form className={styles.form}>
+        <select name="font" onChange={this.handleInput} value={this.state.font}>
+          <option value="">Pick a font</option>
+          {fontList}
+        </select>
+        <input name="text" onChange={this.handleInput} value={this.state.text}></input>
+      </form>
       <button onClick={this.handleClick}>click me</button>
-      <input name="text" onChange={this.handleInput} value={this.state.text}></input>
-      <h1 >{this.state.formattedText}</h1>
+      <h1><pre>{this.state.formatedText}</pre></h1>
       </>
     );
   }
