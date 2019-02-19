@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "figlet": "^1.2.1",
+    "gradient-string": "^1.2.0",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"

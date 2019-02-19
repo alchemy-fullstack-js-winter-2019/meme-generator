@@ -5,14 +5,13 @@ class App extends PureComponent {
   state = {
     clickCount: 0,
     text: '',
-    formattedText: ''
+    formattedText: '',
+    font: ''
   }
 
   formatText = () => {
     figlet.text(this.state.text, {
-      font: 'Ghoulish',
-      horizontalLayout: 'default',
-      verticalLayout: 'default' }, (err, data) => {
+      font: this.state.font }, (err, data) => {
       if(err) {
         console.log('Something went wrong...');
         console.dir(err);
@@ -29,8 +28,9 @@ class App extends PureComponent {
     });
   }
 
-  handleText = ({ target }) => {
-    this.setState({ text: target.value }, () => {
+  handleChange = ({ target }) => {
+    console.log(target.value, 'target');
+    this.setState({ [target.name]: target.value }, () => {
       this.formatText();
     });
   }
@@ -40,9 +40,18 @@ class App extends PureComponent {
     return (
       <Fragment>
         <h1>Heyo</h1>
-        <input type="text" name="text" value={text} onChange={this.handleText}></input>
-        <button onClick={this.handleClick}>Button</button>
-        <h1>{formattedText}</h1>
+        <form>
+          <input type="text" name="text" value={text} onChange={this.handleChange}></input>
+          <select name="font" onChange={this.handleChange}>
+            <option selected disabled hidden>Pick a Font</option>
+            <option value="Stellar" name="Stellar">Stellar</option>
+            <option value="Speed" name="Speed">Speed</option>
+            <option value="Ghost" name="Ghost">Ghost</option>
+            <option value="Ghoulish" name="Ghoulish">Ghoulish</option>
+          </select>
+          <button onClick={this.handleClick}>Button</button>
+        </form>
+        <pre>{formattedText}</pre>
         <p>{text}</p>
       </Fragment>
     );
