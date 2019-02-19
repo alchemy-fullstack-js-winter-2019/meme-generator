@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --hot --mode development",
+    "start": "webpack-dev-server --hot --mode development --devtool eval-source-map",
     "build": "webpack -p",
     "lint": "eslint ."
   },
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/Shaba9/meme-generator#readme",
   "dependencies": {
+    "figlet": "^1.2.1",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
