@@ -31,7 +31,7 @@ export default class App extends PureComponent {
     });
   };
   render() {
-    const fonts = ['Ghosts', 'Ghoulish', 'Soft', 'Star Strips', 'Tombstone'];
+    const fonts = ['Ghost', 'Ghoulish', 'Soft', 'Star Strips', 'Tombstone'];
     const listOfOptions = fonts.map(font => {
       return (
         <option key={font} value={font}>{font}</option>
