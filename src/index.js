@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App';
+import Demo from './components/Demo.js';
 
 render(
-  <App />,
+  <Demo />,
   document.getElementById('root')
  
 );
