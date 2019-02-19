@@ -6,11 +6,12 @@ export default class App extends PureComponent {
     hi: 'there',
     count: 0,
     text: '',
-    formatedText: ''
+    formatedText: '',
+    font: 'Ghost'
   }
 
   formatText = () => {
-    const font = 'Ghost';
+    const font = this.state.font;
     figlet.text(this.state.text,
       { font },
       (err, formatedText) => {
@@ -37,6 +38,12 @@ export default class App extends PureComponent {
         <h1>Hi</h1>
         <input type="text" name="text" value={this.state.text} onChange={this.handleChange} />
         <h1>{this.state.text}</h1>
+        <select name="font" value={this.state.font} onChange={this.handleChange}>
+          <option value="Ghost">Ghost</option>
+          <option value="3-D">3-D</option>
+          <option value="Train">Train</option>
+          <option value="Wavy">Wavy</option>
+        </select>
         <h2><pre>{this.state.formatedText}</pre></h2>
         <button onClick={this.handleClick}>Click Me!</button>
       </>
