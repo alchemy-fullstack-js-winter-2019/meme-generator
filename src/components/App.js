@@ -6,12 +6,14 @@ class App extends PureComponent {
     clickCount: 0,
     text: '',
     formattedText: '',
-    font: ''
+    font: 'Ghoulish',
+    img: ''
   }
 
   formatText = () => {
+    const { font } = this.state;
     figlet.text(this.state.text, {
-      font: this.state.font }, (err, data) => {
+      font }, (err, data) => {
       if(err) {
         console.log('Something went wrong...');
         console.dir(err);
@@ -29,7 +31,6 @@ class App extends PureComponent {
   }
 
   handleChange = ({ target }) => {
-    console.log(target.value, 'target');
     this.setState({ [target.name]: target.value }, () => {
       this.formatText();
     });
@@ -37,6 +38,10 @@ class App extends PureComponent {
 
   render() {
     const { text, formattedText } = this.state;
+
+    const fontOptions = ['Stellar', 'Speed', 'Ghost', 'Ghoulish'].map(f => {
+      return <option key={f} value={f}>{f}</option>;
+    });
     return (
       <Fragment>
         <h1>Heyo</h1>
@@ -44,10 +49,7 @@ class App extends PureComponent {
           <input type="text" name="text" value={text} onChange={this.handleChange}></input>
           <select name="font" onChange={this.handleChange}>
             <option selected disabled hidden>Pick a Font</option>
-            <option value="Stellar" name="Stellar">Stellar</option>
-            <option value="Speed" name="Speed">Speed</option>
-            <option value="Ghost" name="Ghost">Ghost</option>
-            <option value="Ghoulish" name="Ghoulish">Ghoulish</option>
+            {fontOptions}
           </select>
           <button onClick={this.handleClick}>Button</button>
         </form>
