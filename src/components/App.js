@@ -58,7 +58,6 @@ export default class App extends PureComponent {
         <>
           <button onClick={this.handleClick}>Make Picture</button>
           <button onClick={this.saveFile}>Save Picture</button>
-
           <input type="text" name="text" onChange={this.handleChange} value={this.text}></input>
           <select name="font" value={this.font} onChange={this.handleChange}>{listOfOptions}</select>
           <h1>{this.state.text}</h1>
