@@ -1,7 +1,13 @@
 import React, { PureComponent, Fragment } from 'react';
 import figlet from 'figlet';
+import domToImage from 'dom-to-image';
 
 class App extends PureComponent {
+  // constructor(props) {
+  //   super(props);
+
+  // }
+
   state = {
     clickCount: 0,
     text: '',
@@ -24,6 +30,16 @@ class App extends PureComponent {
     }); 
   }
 
+  textToImage = event => {
+    event.preventDefault();
+    const image = document.getElementById('formattedText');
+    console.log(image);
+    domToImage.toPng(image)
+      .then(img => {
+        this.setState({ img }); 
+      });
+  }
+
   handleClick = () => {
     this.setState({ clickCount: this.state.clickCount + 1 }, () => {
       console.log('clicked', this.state.clickCount, 'times');
@@ -37,24 +53,24 @@ class App extends PureComponent {
   }
 
   render() {
-    const { text, formattedText } = this.state;
+    const { text, formattedText, img } = this.state;
 
     const fontOptions = ['Stellar', 'Speed', 'Ghost', 'Ghoulish'].map(f => {
       return <option key={f} value={f}>{f}</option>;
     });
     return (
       <Fragment>
-        <h1>Heyo</h1>
-        <form>
+        <h1>Figlet Generator!</h1>
+        <form className="form" onSubmit={this.textToImage}>
           <input type="text" name="text" value={text} onChange={this.handleChange}></input>
           <select name="font" onChange={this.handleChange}>
-            <option selected disabled hidden>Pick a Font</option>
             {fontOptions}
           </select>
-          <button onClick={this.handleClick}>Button</button>
+          <button>Submit</button>
         </form>
-        <pre>{formattedText}</pre>
+        <h2 id="formattedText"><pre>{formattedText}</pre></h2>
         <p>{text}</p>
+        {img && <p><img src={img} /></p>}
       </Fragment>
     );
   }
