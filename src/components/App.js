@@ -15,14 +15,15 @@ export default class App extends PureComponent {
   };
   handleChange = ({ target }) => {
     console.log(target.value);
-   
+    const heading = document.getElementById('heading');
+    heading.innerHTML = target.value;
   };
   render() {
     return (
         <>
-          <h1>Hi</h1>
           <button onClick={this.handleClick}>Press me</button>
           <input id="text" type="text" onChange={this.handleChange}></input>
+          <h1 id="heading"></h1>
         </>
     );
   }
