@@ -10,7 +10,6 @@ import 'normalize-css';
 
 //class components are used when we need to store state
 export default class App extends PureComponent {
-
   state = {
     clicks: 0,
     text: '',
@@ -49,19 +48,17 @@ export default class App extends PureComponent {
   }
 
   render() {
-   
     return (
       <Fragment>
-        
+
         <TextFormatter 
           text={this.state.text} 
           font={this.state.font} 
           handleChange={this.handleChange} 
-          textToImage={this.textToImage}/>
+          textToImage={this.textToImage}
+        />
         
-        <h2 className={styles.text}>
-          {this.state.text}
-        </h2>
+        <h2 className={styles.text}>{this.state.text}</h2>
 
         <FormatDisplay formattedText={this.state.formattedText} />
         

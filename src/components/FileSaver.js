@@ -2,8 +2,7 @@ import React, { Fragment, PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import fileSaver from 'file-saver';
 
-
-class FileSaver extends PureComponent {
+export default class FileSaver extends PureComponent {
   static propTypes = {
     img: PropTypes.string.isRequired
   }
@@ -21,6 +20,3 @@ class FileSaver extends PureComponent {
     );
   }
 }
-
-
-export default FileSaver;
