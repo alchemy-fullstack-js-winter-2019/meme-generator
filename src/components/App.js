@@ -9,21 +9,18 @@ export default class App extends PureComponent {
   handleClick = () => {
     let clickCount = this.state.clickCount;
     this.setState({ clickCount: clickCount + 1 }, () => {
-      // eslint-disable-next-line no-console
-      console.log(this.state.clickCount);
+      console.log(clickCount);
     });
   };
   handleChange = ({ target }) => {
-    console.log(target.value);
-    const heading = document.getElementById('heading');
-    heading.innerHTML = target.value;
+    this.setState({ [target.name]: target.value });
   };
   render() {
     return (
         <>
           <button onClick={this.handleClick}>Press me</button>
-          <input id="text" type="text" onChange={this.handleChange}></input>
-          <h1 id="heading"></h1>
+          <input type="text" name="text" onChange={this.handleChange} value={this.text}></input>
+          <h1>{this.state.text}</h1>
         </>
     );
   }
