@@ -39,7 +39,7 @@ export default class App extends PureComponent {
         <button onClick={this.handleClick}> Click Here</button>
         <input type="text"  name="text" onChange={this.onChange} value={this.state.text}></input>
         <h1>{text}</h1>
-        <h2>{formatedText}</h2>
+        <h2><pre>{formatedText}</pre></h2>
       </>
     );
   }
