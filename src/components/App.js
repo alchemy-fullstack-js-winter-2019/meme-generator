@@ -1,10 +1,13 @@
 /*eslint-disable no-console*/
 import React, { Fragment, PureComponent } from 'react';
-import 'normalize-css';
+import FileSaver from './FileSaver';
+import FormatDisplay from './FormatDisplay';
+import TextFormatter from './TextFormatter';
 import styles from '../css/App.css';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
+import 'normalize-css';
 
 //class components are used when we need to store state
 export default class App extends PureComponent {
@@ -13,7 +16,7 @@ export default class App extends PureComponent {
     clicks: 0,
     text: '',
     formattedText: '',
-    font: 'Twisted',
+    font: 'DOSRebel',
     img: ''
   }
 
@@ -21,7 +24,7 @@ export default class App extends PureComponent {
     fileSaver.saveAs(this.state.img);
   }
 
-  textToImage = (event) => {
+  textToImage = event => {
     event.preventDefault();
     const image = document.getElementById('formattedText');
     domToImage.toPng(image)
@@ -51,43 +54,26 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const fontOptions = ['Alligator', 'Basic', 'Twisted', 'Whimsy', 'Ghost', 'Goofy', 'DOSRebel', 'Diamond', 'Digital', 'Diet Cola'].map(f => {
-      return <option key={f} value={f}>{f}</option>;
-    });
-
+   
     return (
       <Fragment>
-        <form onSubmit={this.textToImage}>
-          <label>
-          Type Your Text:
-            <input type='text' name='text' value={this.state.text} onChange={this.handleChange}></input>
-          </label>
         
-          <select name='font' value={this.state.font} onChange={this.handleChange}>
-            {fontOptions}
-          </select>
+        <TextFormatter 
+          text={this.state.text} 
+          font={this.state.font} 
+          handleChange={this.handleChange} 
+          textToImage={this.textToImage}/>
+        
+        <h2 className={styles.text}>
+          {this.state.text}
+        </h2>
 
-          <button onClick={this.handleClick}>
-          Create Image
-          </button>
+        <FormatDisplay formattedText={this.state.formattedText} />
 
-          <h2 className={styles.text}>
-            {this.state.text}
-          </h2>
+        {this.state.img && <img src={this.state.img}/>}
 
-          <h2 id="formattedText" className={styles.formattedText}>
-            <pre>
-              {this.state.formattedText}
-            </pre>
-          </h2>
+        {this.state.img && <button onClick={this.saveFile}>Save Image</button>}
 
-          {this.state.img && <img src={this.state.img}/>}
-
-          <button onClick={this.saveFile}>
-            Save Image
-          </button>
-
-        </form>
       </Fragment>
     );
   }
