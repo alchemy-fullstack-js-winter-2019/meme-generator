@@ -3,15 +3,28 @@ import React, { Fragment, PureComponent } from 'react';
 import 'normalize-css';
 import styles from '../css/App.css';
 import figlet from 'figlet';
+import domToImage from 'dom-to-image';
 
 //class components are used when we need to store state
+
 export default class App extends PureComponent {
+
   state = {
     clicks: 0,
     text: '',
     formattedText: '',
-    font: 'DOS Rebel'
+    font: 'Twisted',
+    img: ''
   }
+
+  textToImage = (event) => {
+    event.preventDefault();
+    const image = document.getElementById('formattedText');
+    domToImage.toPng(image)
+      .then(img => {
+        this.setState({ img });
+      });
+  };
 
   handleClick = () => {
     this.setState({ clicks: this.state.clicks + 1 }, () => {
@@ -19,47 +32,57 @@ export default class App extends PureComponent {
     });
   }
 
-  handleChange = (e) => {
-    this.setState({ text: e.target.value }, () => {
+  handleChange = ({ target }) => {
+    this.setState({ [target.name]: target.value }, () => {
       this.formatText();
     });
   }
 
   formatText = () => {
-    const font = 'Ghost';
-    figlet.text(this.state.text, { font }, (err, data) => {
+    const { font } = this.state;
+    figlet.text(this.state.text, { font }, (err, formattedText) => {
       if(err) return console.error(err);
-      this.setState({ formattedText: data });
+      this.setState({ formattedText });
     });
   }
 
   render() {
+    const fontOptions = ['Alligator', 'Basic', 'Twisted'].map(f => {
+      return <option key={f} value={f}>{f}</option>;
+    });
+
     return (
       <Fragment>
-        <label>
+        <form onSubmit={this.textToImage}>
+          <label>
           Type Your Text:
-          <input type="text" value={this.state.text} onChange={this.handleChange}></input>
-        </label>
+            <input type='text' name='text' value={this.state.text} onChange={this.handleChange}></input>
+          </label>
         
-        <select>
+          <select name='font' value={this.state.font} onChange={this.handleChange}>
+            {fontOptions}
+          </select>
 
-        </select>
+          <button onClick={this.handleClick}>
+          Create Image
+          </button>
 
-        <button onClick={this.handleClick}>
-          Click Me
-        </button>
+          <h2 className={styles.text}>
+            {this.state.text}
+          </h2>
 
-        <h2 className={styles.text}>
-          {this.state.text}
-        </h2>
+          <h2 id="formattedText" className={styles.formattedText}>
+            <pre>
+              {this.state.formattedText}
+            </pre>
+          </h2>
 
-        <h2 className={styles.formattedText}>
-          <pre>
-            {this.state.formattedText}
-          </pre>
-        </h2>
+          {this.state.img && <img src={this.state.img}/>}
+        </form>
+        
 
       </Fragment>
     );
   }
 }
+

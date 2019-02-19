@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/kristinhortsch/meme-generator#readme",
   "dependencies": {
+    "dom-to-image": "^2.6.0",
     "figlet": "^1.2.1",
     "file-loader": "^3.0.1",
     "normalize-css": "^2.3.1",
