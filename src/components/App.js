@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 
 class App extends PureComponent {
-  handleClick() {
+  handleClick = () => {
     console.log('clicked!');
   }
   render() {
