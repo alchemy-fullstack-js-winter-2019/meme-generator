@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
+    "dom-to-image": "^2.6.0",
     "figlet": "^1.2.1",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
