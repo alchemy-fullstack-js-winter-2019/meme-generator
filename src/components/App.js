@@ -1,9 +1,21 @@
 import React, { PureComponent }from 'react';
+import figlet from 'figlet';
 
 class App extends PureComponent {
   state = {
     count: 0,
-    text: ''
+    text: '',
+    formattedText: ''
+  };
+
+  formatText = () => {
+    const font = 'Ghost';
+    figlet.text(this.state.text, 
+      { font },
+      (err, formattedText) => {
+      if(err) return console.error(err);
+      this.setState({ formattedText });
+    });
   };
 
 handleClick = () => {
@@ -13,14 +25,18 @@ handleClick = () => {
   }); 
 };
 handleChange = ({ target }) => {
-  this.setState({ [target.name]: target.value });
+  this.setState({ [target.name]: target.value }, () =>{
+    this.formatText();
+  });
+
 };
 
   render() {
-    const { text } = this.state;
+    const { text, formattedText } = this.state;
     return (
       <>
       <h1>Hello</h1>
+      <h2><pre>{formattedText}</pre></h2>
       <button onClick={this.handleClick}>click</button>
       <input type="text" name="text" value={text} onChange={this.handleChange} />
       <h2>{text}</h2>
@@ -28,4 +44,7 @@ handleChange = ({ target }) => {
     );
   }
 }
+
+
+
 export default App;
