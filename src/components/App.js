@@ -2,14 +2,20 @@ import React, { PureComponent } from 'react';
 
 
 export default class App extends PureComponent {
+  state = {
+    clickCount: 0
+  }
   handleClick = () => {
-    return console.log('Clicked');
+    let clickCount = this.state.clickCount;
+    clickCount++;
+    this.setState({ clickCount: clickCount });
+    console.log(this.state.clickCount);
   };
   render() {
     return (
         <>
           <h1>Hi</h1>
-          <button onClick={this.handleClick} >Press me</button>
+          <button onClick={this.handleClick}>Press me</button>
         </>
     );
   }
