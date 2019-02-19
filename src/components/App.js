@@ -1,8 +1,9 @@
 import React, { Fragment, PureComponent } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
-import fileSaver from 'file-saver';
-
+import FormatText from './TextFormatter';
+import FormatDisplay from './FormatDisplay';
+import FileSaver from './FileSaver';
 
 class App extends PureComponent{
     constructor(props) {
@@ -18,17 +19,6 @@ class App extends PureComponent{
         font: 'Ghost',
         img: null
     };
-
-
-    handleClick = () => {
-        event.preventDefault();
-        let counter = this.state.clickCount;
-        this.setState({ clickCount: counter + 1 }, () => {
-            console.log(this.state.clickCount);
-        });
-        console.log('IVE BEEN CLICKED');
-    };
-
 
     formatText = () => {
         figlet.text(this.state.inputText, {
@@ -61,40 +51,22 @@ class App extends PureComponent{
                 this.setState({ img });
             });
     };
-    saveImage = () => {
-        fileSaver.saveAs(this.state.img);
-    }
-
-
     render() {
-        const { inputText, formattedText, img } = this.state;
-
-
-        const fonts = ['Ghost', '3-D', 'Cola'].map(font => {
-            return <option key={font} value={font}>{font}</option>;
-        });
-
+        const { inputText, formattedText, img, font } = this.state;
 
         return (
             <Fragment>
-                <h1>Hello world</h1>
-                <form>
-                    <button onClick={this.handleClick}>CLICK ME</button>
-                    <input name="inputText" type="text" value={inputText} onChange={this.handleChange}/>
-                </form>
-                <form>
-                    <label> SELECT FONT
-                        <select name="font" onChange={this.handleChange} value={this.font}>
-                            {fonts}
-                        </select>
-                    </label>
-                    <button onClick={this.textToImage}> CLICK TO GENERATE IMAGE</button>
-                    <button onClick={this.saveImage}>CLICK TO DOWNLOAD IMAGE</button>
-                </form>
-                <h2> {inputText} </h2>
-                <img src={img}/>
-                
-                <h2 ref={this.imgRef} id="image"><pre>{formattedText}</pre></h2>
+                <FormatText
+                    text={inputText}
+                    font={font}
+                    handleChange={this.handleChange}
+                    textToImage={this.textToImage}
+                />
+                <FormatDisplay
+                    formattedText={formattedText}
+                    imageRef={this.imgRef}
+                />
+                {img && <FileSaver img={img} />}
                 
             </Fragment>
         );
