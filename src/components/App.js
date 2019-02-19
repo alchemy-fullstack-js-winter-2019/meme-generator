@@ -1,12 +1,17 @@
-import React, { Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 
-
-function App() {
-  return (
-    <Fragment>
-      <p>Heyo</p>
-    </Fragment>
-  );
+class App extends PureComponent {
+  handleClick() {
+    console.log('clicked!');
+  }
+  render() {
+    return (
+      <Fragment>
+        <h1>Heyo</h1>
+        <button onClick={this.handleClick}>Button</button>
+      </Fragment>
+    );
+  }
 }
 
 export default App;
