@@ -1,6 +1,7 @@
 /*eslint-disable no-console*/
 import React, { Fragment, PureComponent } from 'react';
 import 'normalize-css';
+import styles from '../css/App.css';
 import figlet from 'figlet';
 
 //class components are used when we need to store state
@@ -25,29 +26,39 @@ export default class App extends PureComponent {
   }
 
   formatText = () => {
-    figlet.text(this.state.text, {
-      font: 'Ghost',
-      horizontalLayout: 'default',
-      verticalLayout: 'default'
-    }, (err, data) => {
-      if(err) {
-        console.log('Something went wrong...');
-        console.dir(err);
-        return;
-      }
-      this.setState({ formattedText: data }, () => {
-        console.log('data', data);
-      });
-      
+    const font = 'Ghost';
+    figlet.text(this.state.text, { font }, (err, data) => {
+      if(err) return console.error(err);
+      this.setState({ formattedText: data });
     });
   }
 
   render() {
     return (
       <Fragment>
-        <input type="text" value={this.state.text} onChange={this.handleChange}></input>
-        <button onClick={this.handleClick}>Click Me</button>
-        <h1><pre>{this.state.formattedText}</pre></h1>
+        <label>
+          Type Your Text:
+          <input type="text" value={this.state.text} onChange={this.handleChange}></input>
+        </label>
+        
+        <select>
+
+        </select>
+
+        <button onClick={this.handleClick}>
+          Click Me
+        </button>
+
+        <h2 className={styles.text}>
+          {this.state.text}
+        </h2>
+
+        <h2 className={styles.formattedText}>
+          <pre>
+            {this.state.formattedText}
+          </pre>
+        </h2>
+
       </Fragment>
     );
   }
