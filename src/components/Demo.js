@@ -6,7 +6,8 @@ export default class App extends PureComponent {
   state = {
     count: 0,
     text: '',
-    formatedText: ''
+    formatedText: '',
+    font: 'Ghost'
   }
   //property class
   handleClick = () => {
@@ -22,7 +23,7 @@ export default class App extends PureComponent {
   }
 
   formatText = () => {
-    const font = 'Greek';
+    const { font } = this.state;
     figlet.text(this.state.text, 
       { font },
       (err, formatedText) => {
@@ -32,10 +33,15 @@ export default class App extends PureComponent {
   };
 
   render() {
-    const { text, formatedText } = this.state;
+    const { text, formatedText, font } = this.state;
+    const fontOptions= ['Ghost', 'Weird', 'Chunky', 'Basic'].map(f => {
+      return <option key={f} value={f}>{f}</option>;
+    });
+
     return (
 
       <>  
+        <select name="font" value={font} onChange={this.onChange}>{fontOptions}</select>
         <button onClick={this.handleClick}> Click Here</button>
         <input type="text"  name="text" onChange={this.onChange} value={this.state.text}></input>
         <h1>{text}</h1>
