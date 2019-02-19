@@ -1,19 +1,30 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
-
+import domToImage from 'dom-to-image';
 
 export default class App extends PureComponent {
   state = {
     clickCount: 0,
     text: null,
     formatedText: '',
-    font: 'Ghoulish'
+    font: 'Ghoulish',
+    img: ''
   }
   handleClick = () => {
     let clickCount = this.state.clickCount;
     this.setState({ clickCount: clickCount + 1 }, () => {
       // eslint-disable-next-line no-console
       console.log(clickCount);
+      const node = document.getElementById('formatedText');
+      domToImage.toPng(node)
+        .then(dataUrl => {
+          const img = new Image();
+          img.src = dataUrl;
+          document.body.appendChild(img);
+        })
+        .catch(err => {
+          console.error('oopies doopies, we made an errory weerrory', err);
+        });
     });
   };
   handleChange = ({ target }) => {
@@ -26,15 +37,16 @@ export default class App extends PureComponent {
       font: this.state.font
     }, 
     (err, formatedText) => {
+      // eslint-disable-next-line no-console
       if(err) return console.error(err);
       this.setState({ formatedText });
     });
   };
   render() {
     const fonts = ['Ghost', 'Ghoulish', 'Soft', 'Star Strips', 'Tombstone'];
-    const listOfOptions = fonts.map(font => {
+    const listOfOptions = fonts.map(f => {
       return (
-        <option key={font} value={font}>{font}</option>
+        <option key={f} value={f}>{f}</option>
       );
     });
     return (
@@ -43,7 +55,7 @@ export default class App extends PureComponent {
           <input type="text" name="text" onChange={this.handleChange} value={this.text}></input>
           <select name="font" value={this.font} onChange={this.handleChange}>{listOfOptions}</select>
           <h1>{this.state.text}</h1>
-          <h2><pre>{this.state.formatedText}</pre></h2>
+          <h2 id="formatedText"><pre>{this.state.formatedText}</pre></h2>
         </>
     );
   }

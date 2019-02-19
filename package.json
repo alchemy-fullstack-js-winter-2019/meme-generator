@@ -48,6 +48,7 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.3.3",
+    "dom-to-image": "^2.6.0",
     "figlet": "^1.2.1",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
