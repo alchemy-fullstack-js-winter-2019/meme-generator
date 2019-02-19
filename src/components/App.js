@@ -6,7 +6,6 @@ import TextFormatter from './TextFormatter';
 import styles from '../css/App.css';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
-import fileSaver from 'file-saver';
 import 'normalize-css';
 
 //class components are used when we need to store state
@@ -18,10 +17,6 @@ export default class App extends PureComponent {
     formattedText: '',
     font: 'DOSRebel',
     img: ''
-  }
-
-  saveFile = () => {
-    fileSaver.saveAs(this.state.img);
   }
 
   textToImage = event => {
@@ -69,10 +64,8 @@ export default class App extends PureComponent {
         </h2>
 
         <FormatDisplay formattedText={this.state.formattedText} />
-
-        {this.state.img && <img src={this.state.img}/>}
-
-        {this.state.img && <button onClick={this.saveFile}>Save Image</button>}
+        
+        {this.state.img && <FileSaver img={this.state.img} saveFile={this.saveFile}/>}
 
       </Fragment>
     );
