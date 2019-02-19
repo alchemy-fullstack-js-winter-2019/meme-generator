@@ -12,7 +12,8 @@ export default class App extends PureComponent {
     console.log('clicked');
   }
   onChange = ({ target }) => {
-    this.setState({ text: target.value });
+    //target.name refers to name in input can have multiple 
+    this.setState({ [target.name]: target.value });
     
   }
 
@@ -20,7 +21,7 @@ export default class App extends PureComponent {
     return (
       <>  
         <button onClick={this.handleClick}> Click Here</button>
-        <input onChange={this.onChange} value={this.state.text}></input>
+        <input type = "text"  name="text" onChange={this.onChange} value={this.state.text}></input>
         <h1>{this.state.text}</h1>
       </>
     );
