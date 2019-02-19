@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 export default class App extends PureComponent {
   state = {
@@ -21,6 +22,7 @@ export default class App extends PureComponent {
           const img = new Image();
           img.src = dataUrl;
           document.body.appendChild(img);
+          this.setState({ img: dataUrl });
         })
         .catch(err => {
           console.error('oopies doopies, we made an errory weerrory', err);
@@ -42,6 +44,9 @@ export default class App extends PureComponent {
       this.setState({ formatedText });
     });
   };
+  saveFile = () => {
+    fileSaver.saveAs(this.state.img);
+  };
   render() {
     const fonts = ['Ghost', 'Ghoulish', 'Soft', 'Star Strips', 'Tombstone'];
     const listOfOptions = fonts.map(f => {
@@ -51,7 +56,9 @@ export default class App extends PureComponent {
     });
     return (
         <>
-          <button onClick={this.handleClick}>Press me</button>
+          <button onClick={this.handleClick}>Make Picture</button>
+          <button onClick={this.saveFile}>Save Picture</button>
+
           <input type="text" name="text" onChange={this.handleChange} value={this.text}></input>
           <select name="font" value={this.font} onChange={this.handleChange}>{listOfOptions}</select>
           <h1>{this.state.text}</h1>
