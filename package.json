@@ -6,6 +6,7 @@
   "dependencies": {
     "dom-to-image": "^2.6.0",
     "figlet": "^1.2.1",
+    "file-saver": "^2.0.1",
     "gradient-string": "^1.2.0",
     "nodemon": "^1.18.10",
     "normalize.css": "^8.0.1",
