@@ -7,9 +7,9 @@ export default class App extends PureComponent {
   }
   handleClick = () => {
     let clickCount = this.state.clickCount;
-    clickCount++;
-    this.setState({ clickCount: clickCount });
-    console.log(this.state.clickCount);
+    this.setState({ clickCount: clickCount + 1 }, () => {
+      console.log(this.state.clickCount);
+    });
   };
   render() {
     return (
