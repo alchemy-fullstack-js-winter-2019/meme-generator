@@ -1,12 +1,13 @@
 import React, { PureComponent, Fragment } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 class App extends PureComponent {
-  // constructor(props) {
-  //   super(props);
-
-  // }
+  constructor(props) {
+    super(props);
+    this.formattedTextRef = React.createRef();
+  }
 
   state = {
     clickCount: 0,
@@ -30,11 +31,13 @@ class App extends PureComponent {
     }); 
   }
 
+  saveFile = () => {
+    fileSaver.saveAs(this.state.img);
+  }
+
   textToImage = event => {
     event.preventDefault();
-    const image = document.getElementById('formattedText');
-    console.log(image);
-    domToImage.toPng(image)
+    domToImage.toPng(this.formattedTextRef.current)
       .then(img => {
         this.setState({ img }); 
       });
@@ -68,9 +71,9 @@ class App extends PureComponent {
           </select>
           <button>Submit</button>
         </form>
-        <h2 id="formattedText"><pre>{formattedText}</pre></h2>
+        <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
         <p>{text}</p>
-        {img && <p><img src={img} /></p>}
+        {img && <p><img src={img} /> <button onClick={this.saveFile}>Save File!</button></p>}
       </Fragment>
     );
   }
