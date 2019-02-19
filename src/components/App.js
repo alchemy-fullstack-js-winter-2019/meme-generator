@@ -12,12 +12,15 @@ class App extends PureComponent {
     });
   }
 
+  handleText = (e) => {
+    this.setState({ text: e.target.value });
+  }
 
   render() {
     return (
       <Fragment>
         <h1>Heyo</h1>
-        <input type="text" onChange={this.setState}></input>
+        <input type="text" onChange={this.handleText}></input>
         <button onClick={this.handleClick}>Button</button>
         <h1>{this.state.text}</h1>
       </Fragment>
