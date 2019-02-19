@@ -5,7 +5,7 @@
   "scripts": {
     "test": "jest",
     "build": "webpack -p",
-    "start": "webpack-dev-server --hot --mode development"
+    "start": "webpack-dev-server --hot --mode development --devtool eval-source-map"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/kristinhortsch/meme-generator#readme",
   "dependencies": {
+    "figlet": "^1.2.1",
     "file-loader": "^3.0.1",
     "normalize-css": "^2.3.1",
     "normalize.css": "^8.0.1",
