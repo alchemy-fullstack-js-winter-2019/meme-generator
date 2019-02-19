@@ -4,9 +4,9 @@ import 'normalize-css';
 import styles from '../css/App.css';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 //class components are used when we need to store state
-
 export default class App extends PureComponent {
 
   state = {
@@ -15,6 +15,10 @@ export default class App extends PureComponent {
     formattedText: '',
     font: 'Twisted',
     img: ''
+  }
+
+  saveFile = () => {
+    fileSaver.saveAs(this.state.img);
   }
 
   textToImage = (event) => {
@@ -47,7 +51,7 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const fontOptions = ['Alligator', 'Basic', 'Twisted'].map(f => {
+    const fontOptions = ['Alligator', 'Basic', 'Twisted', 'Whimsy', 'Ghost', 'Goofy', 'DOSRebel', 'Diamond', 'Digital', 'Diet Cola'].map(f => {
       return <option key={f} value={f}>{f}</option>;
     });
 
@@ -78,9 +82,12 @@ export default class App extends PureComponent {
           </h2>
 
           {this.state.img && <img src={this.state.img}/>}
-        </form>
-        
 
+          <button onClick={this.saveFile}>
+            Save Image
+          </button>
+
+        </form>
       </Fragment>
     );
   }

@@ -22,6 +22,7 @@
     "dom-to-image": "^2.6.0",
     "figlet": "^1.2.1",
     "file-loader": "^3.0.1",
+    "file-saver": "^2.0.1",
     "normalize-css": "^2.3.1",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
