@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -17,6 +18,11 @@ export default class App extends PureComponent {
     img: ''
     
   };
+
+  saveFile = () => {
+    fileSaver.saveAs(this.state.img);
+
+  }
 
   textToImage = event => {
     event.preventDefault();
@@ -70,10 +76,9 @@ export default class App extends PureComponent {
       </form>
       <h1>{text}</h1>
       <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
-        {img && <img src={img} />}
-      <button onClick={this.handleClick} >
-        Click 
-      </button>
+      {img && <img src={img} />}
+      {img && <button onClick={this.saveFile}>Save File</button>}  
+      <button onClick={this.handleClick} >Click</button>
       </>
     );
   }
