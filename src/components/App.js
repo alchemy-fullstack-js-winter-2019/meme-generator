@@ -1,14 +1,16 @@
 import React, { PureComponent } from 'react';
 
-class App extends PureComponent {
+
+export default class App extends PureComponent {
+  handleClick = () => {
+    return console.log('Clicked');
+  };
   render() {
     return (
         <>
           <h1>Hi</h1>
-          <button>Press me</button>
+          <button onClick={this.handleClick} >Press me</button>
         </>
     );
   }
 }
-
-export default App;
