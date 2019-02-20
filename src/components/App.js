@@ -20,20 +20,11 @@ class App extends PureComponent {
     this.setState({ [target.name]: target.value });
   }
 
-  memeToImage = event => {
+  createAndSaveMeme = event => {
     event.preventDefault();
     domToImage.toPng(this.finalMeme.current)
       .then(img => {
-        console.log(img);
-        this.setState({ img });
-      });
-  }
-
-  saveMeme = event => {
-    console.log(event);
-    this.memeToImage(event)
-      .then(() => {
-        fileSaver.saveAs(this.state.img);
+        fileSaver.saveAs(img);
       });
   }
 
@@ -57,12 +48,14 @@ class App extends PureComponent {
               <input type="url" name="url" value={this.url} onChange={this.handleChange}></input>
             </label>
           </form>
-        </div>
-        <div ref={this.finalMeme} className={styles.final}>
-          {header &&  <p>{header}</p>}
-          <img src={url} />
-          {footer && <p>{footer}</p>}
-          {url && header && <button onClick={this.saveMeme}>Save Meme</button>}
+        
+          <div ref={this.finalMeme} className={styles.final}>
+            {header &&  <p>{header}</p>}
+            <img src={url} />
+            {footer && <p>{footer}</p>}
+          </div>
+          
+          {url && header && <button onClick={this.createAndSaveMeme}>Save Meme</button>}
         </div>
       </Fragment>
     );

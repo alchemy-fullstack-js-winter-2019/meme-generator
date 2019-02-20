@@ -10,6 +10,15 @@
     justify-content: space-evenly;
     padding: 20px;
   }
+  button {
+    bottom: 10vh;
+    left: 50vw;
+    display: block;
+    margin-top: 10px;
+    font-size: .5em;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .final {
@@ -29,14 +38,5 @@
     margin-right: auto;
     padding: 0px;
     width: 500px;
-  }
-  button {
-    bottom: 10vh;
-    left: 50vw;
-    display: block;
-    margin-top: 10px;
-    font-size: .5em;
-    margin-left: auto;
-    margin-right: auto;
   }
 }
