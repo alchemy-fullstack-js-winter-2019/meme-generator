@@ -1,36 +1,60 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
+import Form from './Form';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
+import Display from './Display';
 
-export default class App extends PureComponent {
+export default class App extends Component {
+  constructor(props) {
+    super(props);
+    this.memeRef = React.createRef(); 
+  }
   state = {
     header: '',
     footer: '',
     imgUrl: '',
-    meme: ''
+    headerColor: 'cambria',
+    footerColor: '',
+    headerFont: '',
+    footerFont: 'cambria',
   }
 
-  toImage = event => {
+  Meme = async(event) => {
     event.preventDefault();
-    domToImage.toPng(this.image.current)
-      .then(meme => {
-        fileSaver.saveAs(meme); 
-      });
+    const img = await domToImage.toPng(this.memeRef.current);
+    fileSaver.saveAs(img); 
   };
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
-  }
+  };
 
   render() {
-    const { header, footer, imageUrl } = this.state;
+    const { header, footer, imgUrl, headerColor, footerColor, headerFont, footerFont } = this.state;
     return (
       <>
-        <select name="header" value={header}onChange={this.handleChange}></select>
-        <input type="text" name="footer" value={footer} onChange={this.handleChange} />
-        <input type="text" name="imageUrl" value={imageUrl} onChange={this.handleChange} />
         <h1>Meme Generator</h1>
-        <button onClick={this.toImage}>Save Meme</button>
+        <Form
+          header={header}
+          footer={footer}
+          imgUrl={imgUrl}
+          headerColor={headerColor}
+          headerFont={headerFont}
+          footerColor={footerColor}
+          footerFont={footerFont}
+          onChange={this.handleChange}
+          onSubmit={this.Meme}
+        />
+        <Display
+          memeRef={this.memeRef}
+          header={header}
+          footer={footer}
+          imgUrl={imgUrl}
+          headerColor={headerColor}
+          headerFont={headerFont}
+          footerColor={footerColor}
+          footerFont={footerFont}
+        />
       </>
     );
   }
