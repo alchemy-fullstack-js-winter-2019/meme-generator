@@ -3,10 +3,10 @@ import PropTypes from 'prop-types';
 
 function Meme({ bottomCaption, topCaption, url, imageRef }) {
     const divStyle = { 
-        background: `url(${url})`,
-        backgroundRepeat: 'no-repeat',
+        background: `url(${url}) no-repeat fixed`,
+        height: '500px',
         width: '500px',
-        height: '500px'
+        
     };
     const headerStyle = {
         textAlign: 'center',
@@ -14,7 +14,9 @@ function Meme({ bottomCaption, topCaption, url, imageRef }) {
         top: '10px'
     };
     const footerStyle = {
-        textAlign: 'center'
+        textAlign: 'center',
+        position: 'relative',
+        bottom: '10px'
     };
     return (
         <div style={ divStyle } ref={imageRef} id="image">
