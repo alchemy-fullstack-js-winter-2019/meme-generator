@@ -7,14 +7,32 @@ h1 {
   text-align: center;
 }
 .form {
+  display: flex;
+  flex-wrap: wrap;
   background-color: grey;
   margin: 0 auto; 
   padding: 50px;
   text-align: center;
+  color: white;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 
-  input {
-    margin: 20px;
+  label {
+    display: flex;
+    flex-wrap: wrap;
+    width: 33%;
   }
+  h2 {
+    width: 33%;
+  }
+  input {
+    width: 100%;
+    margin: 1em 1em;
+  }
+  button {
+    border-radius: 10px;
+    height: 2em;
+  }
+  
 }
 
 .memePreview {
