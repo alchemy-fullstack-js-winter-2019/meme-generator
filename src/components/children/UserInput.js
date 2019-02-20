@@ -2,16 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function UserInput({
-  text,
+  topText,
   handleChange
 }) {
   return (
-    <input type="text" name="text" value={text} onChange={handleChange}></input>
+    <input type="text" name="topText" value={topText} onChange={handleChange}></input>
   );
 }
 
 UserInput.propTypes = {
-  text: PropTypes.string.isRequired,
+  topText: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired
 };
 

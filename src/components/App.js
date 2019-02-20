@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import UserInput from './children/UserInput';
 
-
-
 export default class App extends PureComponent {
   constructor(props) {
     super(props);
@@ -18,12 +16,10 @@ export default class App extends PureComponent {
     return (
         <>
           <UserInput 
-            text={topText} 
+            topText={topText} 
             handleChange={this.handleChange}
           />
         </>
     );
   }
 }
-
-
