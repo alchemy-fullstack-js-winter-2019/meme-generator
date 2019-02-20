@@ -9,6 +9,7 @@ module.exports = {
     filename: 'bundle.[hash].js'
     //change this name on every build
   },
+  //allows us to npm start
   devServer: {
     port: 7890
   },
@@ -37,6 +38,7 @@ module.exports = {
             loader: 'style-loader',
             options: { sourceMap: true }
           },
+          //allows us to import css into js files
           {
             loader: 'css-loader',
             options: {
@@ -57,8 +59,9 @@ module.exports = {
           }
         ]
       },
+      //allows us to import img into js files
       {
-        test: /\.(jpg|png|svg)$/,
+        test: /\.(jpeg|jpg|png|svg)$/,
         use: {
           loader: 'url-loader',
           options: { limit: 1000 },

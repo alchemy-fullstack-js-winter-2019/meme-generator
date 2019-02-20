@@ -1,63 +1,70 @@
-import React, { PureComponent }from 'react';
+import React, { Component }from 'react';
 import domToImage from 'dom-to-image';
+import Controls from './Controls';
+import DisplayMeme from './DisplayMeme';
+import fileSaver from 'file-saver';
 
-class App extends PureComponent {
+class App extends Component {
   constructor(props) {
     super(props);
-  
-    this.formattedTextRef = React.createRef();
-  }
+    this.memeRef = React.createRef();
+    }
 
   state = {
     header: '',
+    headerColor: '',
+    headerFont: 'arial',
     footer: '',
-    formattedText: '',
-    img: ''
+    footerColor: '',
+    footerFont: 'arial',
+    imgUrl: ''
   };
+
+generateMeme = () => {
+  console.log('trying to generate meme');
+};
 
 textToImage = event => {
   event.preventDefault();
-  domToImage.toPng(this.formattedTextRef.current)
-  .then(img => {
-    this.setState({ img });
+  domToImage.toPng(this.memeRef.current)
+  .then(imgUrl => {
+    fileSaver.saveAs({ imgUrl });
   });
-};
-
-saveFile = ({ img }) => {
-  fileSaver.saveAs({ img });
 };
 
 handleChange = ({ target }) => {
   this.setState({ [target.name]: target.value },() => {
   });
 };
-  
+
 render() {  
-    const { header, footer, formattedText, img } = this.state;
+    const { header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl } = this.state;
     return (
       <>
       <h1>Meme generator</h1>
-      <form onSubmit= {this.textToImage}>
-      <div>
-      <label>Header</label>
-      <input type="text" name="header" value={header} onChange={this.handleChange} />
-      </div>
-      <div>
-      <label>URL</label>
-      <input type="text" name="img" value={img} onChange={this.handleChange} />
-      </div>
-      <div>
-      <label>Footer</label>
-      <input type="text" name="footer" value={footer} onChange={this.handleChange} />
-      </div>
-      </form>
-      <h1>{header}</h1>
+      <Controls 
+      header={header}
+      footer={footer}
+      imgUrl={imgUrl}
+      onChange={this.handleChange}
+      onSubmit={this.generateMeme}
+      headerColor={headerColor}
+      footerColor={footerColor}
+      />
+      <DisplayMeme 
+      memeRef={this.memeRef}
+      header={header}
+      headerColor={header}
+      //headerFont
+      footer={footer}
+      footerControl={footerControl}
+      //footerFont
+      imgUrl={imgUrl}
+      />
       <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
-      {img && <img src={img} />}
-      {img && <button onClick={this.saveFile}>Save File</button>}
-      <h2>{footer}</h2>
       </>
     )
   }
 }
+
 export default App;
