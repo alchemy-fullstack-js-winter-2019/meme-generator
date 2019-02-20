@@ -35,6 +35,7 @@
   z-index: -12;
   position: absolute;
   width: 100%;
+  height: 100%;
 }
 
 h1 {
@@ -52,10 +53,12 @@ form {
   display: flex;
   justify-content: center;
   font-size: 1.2em;
+  flex-wrap: wrap;
 }
 
 input {
   padding-right: 10px;
+  margin-bottom: 15px;
 }
 
 span {
