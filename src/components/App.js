@@ -20,6 +20,7 @@ class App extends PureComponent {
   }
 
   render() {
+    const { header, footer, url, clicked } = this.state;
     return (
       <Fragment>
         <h1>Meme Generator</h1>
@@ -29,7 +30,9 @@ class App extends PureComponent {
           <input type="url" name="url" value={this.url} onChange={this.handleChange}></input>
           <button value={this.clicked} onClick={this.handleClick}>Create Meme</button>
         </form>
-        {this.state.clicked && <img src={this.state.url} />}
+        {clicked && <p>{header}</p>}
+        {clicked && <img src={url} />}
+        {clicked && <p>{footer}</p>}
       </Fragment>
     );
   }
