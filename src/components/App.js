@@ -3,32 +3,30 @@ import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import 'normalize.css';
 import styles from '../components/App.css';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import Form from './Form';
 
 export default class App extends Component {
   constructor(props) {
     super(props);
-    this.memeTextRef = React.createRef();
+    this.memeRef = React.createRef();
   }
 
   state = {
     headerText: '',
     footerText: '',
     imgUrl: '',
-    meme: ''
   }
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
 
-  divToImage = event => {
+  divToImage = async(event) => {
+    console.log('here');
     event.preventDefault();
-    domToImage.toPng(this.memeTextRef.current)
-      .then(meme => {
-        fileSaver.saveAs(meme);
-      });
+    const meme = await domToImage.toPng(this.memeRef.current);
+    fileSaver.saveAs(meme);
   }
 
   render() {
@@ -44,14 +42,30 @@ export default class App extends Component {
         footerText={footerText}
       />
      
-      <div ref={this.memeTextRef} className={styles.memePreview}>
-        <h3 className={styles.header}>{headerText}</h3>
-        {imgUrl && <img  src={imgUrl}></img>}
-        <h3 className={styles.footer}>{footerText}</h3>
-      </div>
+      <NewMeme 
+        headerText={headerText}
+        imgUrl={imgUrl}
+        footerText={footerText}/>
       </>
     );
   }
 }
+
+function NewMeme({ memeRef, headerText, imgUrl, footerText }) {
+  return (
+    <div ref={memeRef} className={styles.memePreview}>
+      <h3 className={styles.header}>{headerText}</h3>
+      {imgUrl && <img  src={imgUrl}></img>}
+      <h3 className={styles.footer}>{footerText}</h3>
+    </div>
+  );
+}
+
+NewMeme.propTypes = {
+  memeRef: PropTypes.object,
+  headerText: PropTypes.string.isRequired,
+  footerText: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired
+};
 
 

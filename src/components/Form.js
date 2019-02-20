@@ -22,8 +22,15 @@ function Form({ onSubmit, onChange, imgUrl, headerText, footerText }) {
     </form>
   );
 }
+
 // for color picker add 'color' input and new proptype as well as state for each input - then add props to Form and display in render
 // apply style  as style={{ color: headerColor }} in the Form
+
+// Can move the TextControl out of the form
+// Add new input for font and all of the other necessary proptypes/props/etc. 
+// don't forget that styles - when inline inside react - lose the dash and turn into camelCase 
+
+
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onChange: PropTypes.func.isRequired,
