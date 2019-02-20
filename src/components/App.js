@@ -33,8 +33,9 @@ export default class App extends PureComponent {
     const { topText, bottomText, url, color, img } = this.state;
     return (
         <>
+          <h1>Meme Maker</h1>
           <button onClick={this.saveFile}>Download Meme</button>
-          <button onClick={this.memeToImage}>Created Meme</button>
+          <button onClick={this.memeToImage}>Create Meme</button>
           <UserInput 
             topText={topText} 
             bottomText={bottomText} 
