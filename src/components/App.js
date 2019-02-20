@@ -1,74 +1,36 @@
 import React, { PureComponent } from 'react';
-import figlet from 'figlet';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 
-class App extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.formattedTextRef = React.createRef();
-  }
-
+export default class App extends PureComponent {
   state = {
-    clickCount: 0,
-    text: '',
-    formattedText: '',
-    font: 'Basic',
-    img: ''
-  };
+    header: '',
+    footer: '',
+    imgUrl: '',
+    meme: ''
+  }
 
-  textToImage = event => {
+  toImage = event => {
     event.preventDefault();
-    domToImage.toPng(this.formattedTextRef.current)
-      .then(img => {
-        this.setState({ img }); 
+    domToImage.toPng(this.image.current)
+      .then(meme => {
+        fileSaver.saveAs(meme); 
       });
-  }
-
-  formatText = () => {
-    const { font } = this.state;
-    figlet.text(this.state.text,
-      { font },
-      (err, formattedText) => {
-        if(err) return console.error(err);
-        this.setState({ formattedText });
-      });
-  };
-
-  saveFile = () => {
-    fileSaver.saveAs(this.state.img);
-  }
-  
-  handleClick = () => {
-    const { count } = this.state;
-    this.setState({ count: count + 1 }, () => {
-      console.log('Click', this.state.count);
-    });
   };
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () => {
-      this.formatText();
-    });
-  };
+    this.setState({ [target.name]: target.value });
+  }
 
   render() {
-    const { text, formattedText } = this.state;
-    const fontOptions = ['Ghost', 'Weird', 'Chunky', 'Lil Devil'].map(f => {
-      return <option key={f} value={f}>{f}</option>
-      
-    })
+    const { header, footer, imageUrl } = this.state;
     return (
       <>
-        <select name="font" onChange={this.handleChange} >
-          {fontOptions}
-        </select>
-        <input type="text" name="text" value={text} onChange={this.handleChange} />
-        <input type="text" name="anotherText" value={anotherText} onChange={this.handleChange} />
-        <h1>{text}</h1>
-        <h2><pre>{formattedText}</pre></h2>
-        <button onClick={this.handleClick}>Click</button>
-        <button onClick={this.saveFile}
+        <select name="header" value={header}onChange={this.handleChange}></select>
+        <input type="text" name="footer" value={footer} onChange={this.handleChange} />
+        <input type="text" name="imageUrl" value={imageUrl} onChange={this.handleChange} />
+        <h1>Meme Generator</h1>
+        <button onClick={this.toImage}>Save Meme</button>
       </>
     );
   }
