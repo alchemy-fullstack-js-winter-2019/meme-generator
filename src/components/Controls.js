@@ -1,12 +1,12 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-
+import styles from './Controls.css';
 
 function Controls({ handleChange, memeToImage }) {
 
     return (
         <Fragment>
-            <form onSubmit={memeToImage}>
+            <form onSubmit={memeToImage} className={styles.controls}>
                 <label> TOP CAPTION
                     <input type="text" name="topCaption" onChange={handleChange}/>
                 </label>

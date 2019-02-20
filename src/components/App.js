@@ -1,8 +1,9 @@
-import React, { Fragment, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import Controls from './Controls';
 import Meme from './Meme';
 import domToImage from 'dom-to-image';
 import FileSaver from './FileSaver';
+import styles from './App.css';
 
 class App extends PureComponent{
     constructor(props) {
@@ -34,8 +35,8 @@ class App extends PureComponent{
     render() {
         const { bottomCaption, topCaption, url, meme, fontColor } = this.state;
         return (
-            <Fragment>
-                <h1>HELLO WORLD</h1>
+            <div className={styles.app}>
+                <h1>Psstt... You kids want to buy some memes?</h1>
                 <Controls
                     handleChange={this.handleChange}
                     memeToImage={this.memeToImage}
@@ -49,7 +50,7 @@ class App extends PureComponent{
 
                 />
                 {meme && <FileSaver meme={meme} />}
-            </Fragment>
+            </div>
         );
     }
 }
