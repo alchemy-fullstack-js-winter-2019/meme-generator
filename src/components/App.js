@@ -8,13 +8,12 @@ export default class App extends PureComponent {
 
   state = {
     headerText: 'Add Header Text',
-    footerText: '',
+    footerText: 'Add Footer Text',
     imgUrl: ''
   }
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
-    console.log(target.value);
   }
 
   render() {
@@ -23,6 +22,7 @@ export default class App extends PureComponent {
       <>
       <h1>Meme Generatoooor</h1>
       <input onChange={this.handleChange} type="text" name="headerText" value={headerText}></input>
+      <input onChange={this.handleChange} type="text" name="footerText" value={footerText}></input>
       </>
     );
   }
