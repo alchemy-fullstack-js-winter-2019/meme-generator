@@ -7,8 +7,6 @@
     "test": "test"
   },
   "scripts": {
-    "test": "jest --verbose --runInBand --detectOpenHandles",
-    "test:watch": "jest --watch --verbose --runInBand --detectOpenHandles",
     "build": "webpack -p",
     "start": "webpack-dev-server --hot --mode development --devtool eval-sour"
   },
