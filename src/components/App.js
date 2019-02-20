@@ -23,6 +23,7 @@ export default class App extends PureComponent {
       <h1>Meme Generatoooor</h1>
       <input onChange={this.handleChange} type="text" name="headerText" value={headerText}></input>
       <input onChange={this.handleChange} type="text" name="footerText" value={footerText}></input>
+      <input onChange={this.handleChange} type="file" name="imgUrl" value={imgUrl}></input>
       </>
     );
   }
