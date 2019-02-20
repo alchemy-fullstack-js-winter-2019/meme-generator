@@ -10,7 +10,8 @@ export default class App extends PureComponent {
   state = {
     header: '',
     footer: '',
-    img: ''
+    img: '',
+    color: 'white'
   };
 
   handleChange = ({ target }) => {
@@ -28,7 +29,7 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const { header, footer, img } = this.state;
+    const { header, footer, img, color } = this.state;
 
     return (
       <>
@@ -44,6 +45,7 @@ export default class App extends PureComponent {
             img={img}
             header={header}
             footer={footer}
+            color={color}
           />
         </div>
       </>

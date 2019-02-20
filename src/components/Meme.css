@@ -6,7 +6,6 @@ img {
 }
 
 .header {
-  color: white;
   position: relative;
   top: 60px;
   font-size: 25px;
@@ -17,4 +16,20 @@ img {
   position: relative;
   bottom: 60px;
   font-size: 25px;
+}
+
+.red {
+  color: red;
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.blue {
+  color: blue;
 }
