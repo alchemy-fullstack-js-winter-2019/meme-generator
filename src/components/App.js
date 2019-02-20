@@ -8,7 +8,7 @@ export default class App extends PureComponent {
   state = {
     header: '',
     footer: '',
-    img: 'https://cdn.shopify.com/s/files/1/1061/1924/files/Nerd_with_Glasses_Emoji.png?6135488989279264585'
+    img: ''
   };
 
   handleChange = ({ target }) => {
@@ -35,7 +35,7 @@ export default class App extends PureComponent {
         <p>Footer: <input name="footer" type="text" value={footer} onChange={this.handleChange}/></p>
         <div id="meme" className={styles.meme}>
           <h2 className={styles.header}>{header}</h2>
-          <img src={img} />
+          {img && <img src={img} />}
           <h2 className={styles.footer}>{footer}</h2>
         </div>
         <button onClick={this.saveImage}>Save Image</button>
