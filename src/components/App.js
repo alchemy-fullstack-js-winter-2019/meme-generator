@@ -6,17 +6,19 @@ export default class App extends PureComponent {
     super(props);
   }
   state = {
-    topText: null
+    topText: null,
+    bottomText: null
   }
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
   render() {
-    const { topText } = this.state;
+    const { topText, bottomText } = this.state;
     return (
         <>
           <UserInput 
             topText={topText} 
+            bottomText={bottomText} 
             handleChange={this.handleChange}
           />
         </>
