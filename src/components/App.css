@@ -3,30 +3,4 @@
     text-align: center;
     background-color: grey;
   }
-
-  p {
-    font-weight: bold;
-  }
-
-  img {
-    width: 250px;
-    padding: 40px;
-    border: 2px solid rgb(41, 1, 8);
-    background-color: rgb(77, 5, 5);
-  }
-
-  .header {
-    color: white;
-    position: relative;
-    top: 60px;
-    font-size: 25px;
-  }
-
-  .footer {
-    color: white;
-    position: relative;
-    bottom: 60px;
-    font-size: 25px;
-  }
-
 }

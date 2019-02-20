@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import './Form.css';
 
 function Form({ img, header, footer, handleChange, saveImage }) {
   return (

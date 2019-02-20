@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import fileSaver from 'file-saver';
 import domToImg from 'dom-to-image';
-import 'normalize.css';
-import styles from './App.css';
 import Form from './Form';
+import Meme from './Meme';
+import 'normalize.css';
+import './App.css';
 
 export default class App extends PureComponent {
   state = {
@@ -31,17 +32,19 @@ export default class App extends PureComponent {
 
     return (
       <>
-        <Form 
+        <Form
           img={img}
           header={header}
           footer={footer}
           handleChange={this.handleChange}
           saveImage={this.saveImage}
         />
-        <div id="meme" className={styles.meme}>
-          <h2 className={styles.header}>{header}</h2>
-          {img && <img src={img} />}
-          <h2 className={styles.footer}>{footer}</h2>
+        <div id="meme">
+          <Meme
+            img={img}
+            header={header}
+            footer={footer}
+          />
         </div>
       </>
     );
