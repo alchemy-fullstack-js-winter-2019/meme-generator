@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 function MemeForm({ toImage, handleChange, header, footer, imageUrl }) {
   return (
     <Fragment>
-      <h1>Meme Generator</h1>
       <form onSubmit={toImage}>
         <label>
           <span>Header:</span>

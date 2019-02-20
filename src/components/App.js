@@ -31,13 +31,14 @@ export default class App extends PureComponent {
     const { header, footer, imageUrl } = this.state;
     return (
       <Fragment>
+        <h1>Meme Generator</h1>
         <MemeForm 
           toImage={this.toImage} 
           handleChange={this.handleChange}
           header={header}
           footer={footer}
           imageUrl={imageUrl}/>
-        <ImageFormatter
+        <ImageFormatter 
           header={header}
           footer={footer}
           imageUrl={imageUrl}/>
