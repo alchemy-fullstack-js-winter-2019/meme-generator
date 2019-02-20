@@ -27,8 +27,10 @@
 .meme {
   width: 500px;
   position: relative;
+}
+
+.container {
   margin-left: 32%;
-  margin-top: 100px;
 }
 
 .background {
@@ -36,6 +38,7 @@
   position: absolute;
   width: 100%;
   height: 100%;
+  margin-top: -150px;
 }
 
 h1 {
@@ -54,6 +57,7 @@ form {
   justify-content: center;
   font-size: 1.2em;
   flex-wrap: wrap;
+  margin-bottom: 70px;
 }
 
 input {
