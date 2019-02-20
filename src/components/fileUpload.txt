@@ -1,0 +1,17 @@
+Notes on file uploader
+
+<h2>OR</h2>
+
+<label> UPLOAD FROM YOUR COMPUTERZ
+  <input onChange={this.handleChange} type="file" name="imgUpload" ref={this.fileInput} value={imgUpload}></input>
+</label>
+
+
+handleFileUpload = event => {
+  event.preventDefault();
+  alert(`file uploaded: ${this.fileInput.current.files[0].name}`);
+}
+
+state {
+  imgUpload: '',
+}

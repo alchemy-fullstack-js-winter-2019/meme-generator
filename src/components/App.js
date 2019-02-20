@@ -14,7 +14,6 @@ export default class App extends PureComponent {
   state = {
     headerText: '',
     footerText: '',
-    imgUpload: '',
     imgUrl: '',
     meme: ''
   }
@@ -24,22 +23,15 @@ export default class App extends PureComponent {
   }
 
   divToImage = event => {
-    console.log('here');
     event.preventDefault();
     domToImage.toPng(this.memeTextRef.current)
       .then(meme => {
-        console.log(meme);
         fileSaver.saveAs(meme);
       });
   }
 
-  handleFileUpload = event => {
-    event.preventDefault();
-    alert(`file uploaded: ${this.fileInput.current.files[0].name}`);
-  }
-
   render() {
-    const { headerText, footerText, imgUrl, imgUpload } = this.state;
+    const { headerText, footerText, imgUrl } = this.state;
     return (
       <>
       <h1>Rainbow Meme Maker</h1>
@@ -55,12 +47,6 @@ export default class App extends PureComponent {
 
         <label> IMPORT AN IMAGE FROM THE INTERNETS!
           <input onChange={this.handleChange} type="text" name="imgUrl" value={imgUrl}></input>
-        </label>
-
-        <h2>OR</h2>
-
-        <label> UPLOAD FROM YOUR COMPUTERZ
-          <input onChange={this.handleChange} type="file" name="imgUpload" ref={this.fileInput} value={imgUpload}></input>
         </label>
         
         <button type="submit">Save My Meme!</button>
