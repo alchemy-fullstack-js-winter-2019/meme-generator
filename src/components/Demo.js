@@ -1,13 +1,19 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
+import domToImage from 'dom-to-image';
 
 export default class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.formattedTextRef = React.createRef();
+  }
   //can update and change over time
   state = {
     count: 0,
     text: '',
-    formatedText: '',
-    font: 'Ghost'
+    formattedText: '',
+    font: 'Ghost',
+    img: ''
   }
   //property class
   handleClick = () => {
@@ -15,7 +21,7 @@ export default class App extends PureComponent {
     console.log('clicked');
   }
 
-  onChange = ({ target }) => {
+  handleChange = ({ target }) => {
     //target.name refers to name in input can have multiple 
     this.setState({ [target.name]: target.value }, () => {
       this.formatText();
@@ -26,26 +32,39 @@ export default class App extends PureComponent {
     const { font } = this.state;
     figlet.text(this.state.text, 
       { font },
-      (err, formatedText) => {
+      (err, formattedText) => {
         if(err) return console.log(err);
-        this.setState({ formatedText });
+        this.setState({ formattedText });
       });
   };
 
+  textToImage = event => {
+    event.preventDefault();
+    domToImage.toPng(this.formattedTextRef.current)
+      .then(img => {
+        this.setState({ img });
+      });
+  }
+
   render() {
-    const { text, formatedText, font } = this.state;
-    const fontOptions= ['Ghost', 'Weird', 'Chunky', 'Basic'].map(f => {
+    const { text, formattedText, font, img  } = this.state;
+    const fontOptions = ['Ghost', 'Weird', 'Chunky', 'Basic'].map(f => {
       return <option key={f} value={f}>{f}</option>;
     });
 
     return (
-
       <>  
-        <select name="font" value={font} onChange={this.onChange}>{fontOptions}</select>
-        <button onClick={this.handleClick}> Click Here</button>
-        <input type="text"  name="text" onChange={this.onChange} value={this.state.text}></input>
+        <form onSubmit={this.textToImage}>
+          <select name="font" value={font} onChange={this.handleChange}>
+            {fontOptions}
+          </select>
+          <input type="text"  name="text" onChange={this.handleChange} value={text} />
+          <button type="submit"> Create Image</button>
+        </form>
         <h1>{text}</h1>
-        <h2><pre>{formatedText}</pre></h2>
+        <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
+        {img && <img src={img} />}
+        <button onClick={this.handleClick}>Click</button>
       </>
     );
   }
