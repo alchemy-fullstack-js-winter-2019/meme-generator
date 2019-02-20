@@ -14,12 +14,23 @@ function Display({ header, footer, imgUrl, headerColor, footerColor, headerFont,
     fontSize
   };
 
-  return <div ref={memeRef}>
-  <h2 style=({ headerStyle> headerColor }) </h2>;
+  return (<div ref={memeRef}>
+    <h2 style={headerStyle}>{header}</h2>
+    <img src={imgUrl} />
+    <h2 style={footerStyle}>{footer}</h2>
+  </div>
+  );
 }
 
 Display.propTypes = {
-  formattedText: PropTypes.string,
+  memeRef: PropTypes.object.isRequired,
+  header: PropTypes.string.isRequired,
+  headerColor: PropTypes.string.isRequired,
+  headerFont: PropTypes.string.isRequired,
+  footer: PropTypes.string.isRequired,
+  footerColor: PropTypes.string.isRequired,
+  footerFont: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired
 };
 
 export default Display;
