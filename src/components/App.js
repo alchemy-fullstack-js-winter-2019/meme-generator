@@ -1,11 +1,8 @@
 import React, { PureComponent } from 'react';
+// import DomToImage from 'dom-to-image';
+// import FileSaver from './FileSaver';
 
 export default class App extends PureComponent {
-  constructor(props) {
-    super(props);
-    this.formattedTextRef = React.createRef();
-  }
-
   state = {
     header: '',
     footer: ''
@@ -23,11 +20,16 @@ export default class App extends PureComponent {
 
     return (
       <>
-        <input type="header" name="text" value={header} onChange={this.handleChange} />  
-        <input type="footer" name="text" value={footer} onChange={this.handleChange} />  
         
-        <h2>{header}</h2>
-        <h2>{footer}</h2>
+        <input name="text" value={header} onChange={this.handleChange} /> 
+    {/* image */}
+        <input name="text" value={footer} onChange={this.handleChange} />
+    
+        <div className="meme">
+          <h2 className="header">{header}</h2>
+          <img/>
+          <h2 className="footer">{footer}</h2>
+        </div>
       </>
     );
   }
