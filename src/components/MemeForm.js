@@ -18,7 +18,7 @@ function MemeForm({ toImage, handleChange, header, footer, imageUrl, color }) {
 
         <label>
           <span>Image Url:</span>
-          <input type='text' name='imageUrl' value={imageUrl} onChange={handleChange}></input>
+          <input type='url' name='imageUrl' value={imageUrl} onChange={handleChange}></input>
         </label>
 
         <MemeColorFormatter handleChange={handleChange} color={color}/>

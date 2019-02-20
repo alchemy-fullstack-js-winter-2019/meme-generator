@@ -7,6 +7,11 @@ import ImageFormatter from './ImageFormatter';
 import 'normalize-css';
 
 export default class App extends PureComponent {
+  constructor(props) {
+    super(props);
+    this.memeRef = React.createRef();
+  }
+
   state = {
     header: '', 
     footer: '',
@@ -17,7 +22,7 @@ export default class App extends PureComponent {
 
   toImage = event  => {
     event.preventDefault();
-    const image = document.getElementById('meme');
+    const image = this.memeRef.current;
     domToImage.toPng(image)
       .then(meme => {
         fileSaver.saveAs(meme);
@@ -41,6 +46,7 @@ export default class App extends PureComponent {
           imageUrl={imageUrl}
           color={color}/>
         <ImageFormatter 
+          memeRef={this.memeRef}
           header={header}
           footer={footer}
           imageUrl={imageUrl}/>
