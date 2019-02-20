@@ -1,4 +1,4 @@
-:global() {
+:global(*) {
   body {
     text-align: center;
   }
@@ -6,4 +6,17 @@
   img {
     width: 250px;
   }
+
+  .header {
+    color: rgb(156, 8, 8);
+    position: relative;
+    top: 60px;
+  }
+
+  .footer {
+    color: rgb(156, 8, 8);
+    position: relative;
+    bottom: 60px;
+  }
+
 }
