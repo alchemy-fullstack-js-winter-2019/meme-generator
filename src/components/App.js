@@ -38,8 +38,6 @@ class App extends PureComponent{
                     handleChange={this.handleChange}
                     memeToImage={this.memeToImage}
                 />
-
-
                 <Meme
                     bottomCaption={bottomCaption}
                     topCaption={topCaption}

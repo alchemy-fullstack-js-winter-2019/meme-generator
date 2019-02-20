@@ -1,27 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Meme.css';
 
 function Meme({ bottomCaption, topCaption, url, imageRef }) {
-    const divStyle = { 
-        background: `url(${url}) no-repeat fixed`,
-        height: '500px',
-        width: '500px',
-        
-    };
-    const headerStyle = {
-        textAlign: 'center',
-        position: 'relative',
-        top: '10px'
-    };
-    const footerStyle = {
-        textAlign: 'center',
-        position: 'relative',
-        bottom: '10px'
-    };
+
     return (
-        <div style={ divStyle } ref={imageRef} id="image">
-            <h2 style={ headerStyle }>{topCaption}</h2>
-            <h2 style={ footerStyle }>{bottomCaption}</h2>
+        <div  className={styles.div} ref={imageRef}>
+            {url && <img src={url}/> }
+            <h2 className={styles.header}>{topCaption}</h2>
+            <h2 className={styles.footer}>{bottomCaption}</h2>
         </div>
     );
 }
