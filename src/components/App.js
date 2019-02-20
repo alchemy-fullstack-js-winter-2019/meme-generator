@@ -15,7 +15,7 @@ class MyClass extends PureComponent {
   }
 
   textToImage = event => {
-    const toImage = document.getElementById('textToSave');
+    const toImage = document.getElementById('image');
     domToImage.toPng(toImage)
       .then(img => {
         this.setState({ img });
@@ -24,26 +24,25 @@ class MyClass extends PureComponent {
   }
 
   updateInput = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () => {
-      console.log(target.value);
-    });
+    this.setState({ [target.name]: target.value });
   }
 
   render() {
-    const { text, secondText, img, imgURL } = this.state;
+    const { header, footer, img } = this.state;
 
     return (
       <div>
         <h1>Meme Generator</h1>
         <form onSubmit={this.textToImage}>
-          <input type='text' name='header' value={text} onChange={this.updateInput} />
-          <input type='text' name='footer' value={secondText} onChange={this.updateInput} />
-          <input type='text' name='imgURL' value={imgURL} onChange={this.updateInput} />
+          <input type='text' name='header' value={header} onChange={this.updateInput} />
+          <input type='text' name='footer' value={footer} onChange={this.updateInput} />
+          <input id='image' type='text' name='img' value={img} onChange={this.updateInput} />
           <button type='submit'>Save as Image</button>
         </form>
-        <h1>{text}</h1>
+        <h1>{header}</h1>
         {img && <button onClick={this.fileSave}>Save File</button>}
-        {img && <img src={imgURL} />}
+        {img && <img src={img} />}
+        <h2>{footer}</h2>
       </div>
     );
   }
