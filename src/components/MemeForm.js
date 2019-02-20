@@ -10,15 +10,15 @@ function MemeForm({
   return (
     <form>
       <label>
-              Header:
+        Header:
         <input type="text" name="header" value={header} onChange={handleChange}></input>
       </label> 
       <label>
-              Footer:
+        Footer:
         <input type="text" name="footer" value={footer} onChange={handleChange}></input>
       </label>
       <label>
-              Photo Url:
+        Photo Url:
         <input type="url" name="url" value={url} onChange={handleChange}></input>
       </label>
     </form>
