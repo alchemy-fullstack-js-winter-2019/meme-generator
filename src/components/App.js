@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import UserInput from './children/UserInput';
 import DankMemeDisplay from './children/DankMemeDisplay';
 import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -12,7 +13,8 @@ export default class App extends PureComponent {
     topText: '',
     bottomText: '',
     url: '',
-    color: ''
+    color: '',
+    img: ''
   }
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
@@ -24,10 +26,15 @@ export default class App extends PureComponent {
         this.setState({ img });
       });
   };
+  saveFile = () => {
+    fileSaver.saveAs(this.memeRef);
+  }
   render() {
-    const { topText, bottomText, url, color } = this.state;
+    const { topText, bottomText, url, color, img } = this.state;
     return (
         <>
+          <button onClick={this.saveFile}>Download Meme</button>
+          <button onClick={this.memeToImage}>Created Meme</button>
           <UserInput 
             topText={topText} 
             bottomText={bottomText} 
@@ -42,6 +49,7 @@ export default class App extends PureComponent {
             color={color}
             memeRef={this.memeRef}
           />
+          {img && <img src={img}/>}
         </>
     );
   }
