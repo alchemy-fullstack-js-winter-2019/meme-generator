@@ -1,9 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-// import styles from '../css/App.css';
-// import domToImage from 'dom-to-image';
-// import fileSaver from 'file-saver';
-import 'normalize-css';
 
 function MemeForm({ toImage, handleChange, header, footer, imageUrl }) {
   return (

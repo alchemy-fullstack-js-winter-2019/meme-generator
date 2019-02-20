@@ -1,8 +1,9 @@
 import React, { Fragment, PureComponent } from 'react';
-import styles from '../css/App.css';
+import '../css/App.css';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import MemeForm from './MemeForm';
+import ImageFormatter from './ImageFormatter';
 import 'normalize-css';
 
 export default class App extends PureComponent {
@@ -36,13 +37,11 @@ export default class App extends PureComponent {
           header={header}
           footer={footer}
           imageUrl={imageUrl}/>
-        <div className={styles.meme} id="meme">
-          <p className={styles.header}>{this.state.header}</p>
-          <img src={this.state.imageUrl} className={styles.img}/>
-          <p className={styles.footer}>{this.state.footer}</p>
-        </div>
+        <ImageFormatter
+          header={header}
+          footer={footer}
+          imageUrl={imageUrl}/>
       </Fragment>
-      
     );
   }
 }
