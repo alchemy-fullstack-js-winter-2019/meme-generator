@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import TextBox from './children/TextBox';
+import UserInput from './children/UserInput';
 
 
 
@@ -8,17 +8,17 @@ export default class App extends PureComponent {
     super(props);
   }
   state = {
-    text: null
+    topText: null
   }
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
   render() {
-    const { text } = this.state;
+    const { topText } = this.state;
     return (
         <>
-          <TextBox 
-            text={text} 
+          <UserInput 
+            text={topText} 
             handleChange={this.handleChange}
           />
         </>

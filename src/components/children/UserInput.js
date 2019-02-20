@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function TextBox({
+function UserInput({
   text,
   handleChange
 }) {
@@ -10,9 +10,9 @@ function TextBox({
   );
 }
 
-TextBox.propTypes = {
+UserInput.propTypes = {
   text: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired
 };
 
-export default TextBox;
+export default UserInput;
