@@ -8,10 +8,10 @@ export default class App extends PureComponent {
     this.imgRef = React.createRef();
   }
   state = {
-    topText: null,
-    bottomText: null,
-    url: null,
-    color: null
+    topText: '',
+    bottomText: '',
+    url: '',
+    color: ''
   }
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
@@ -31,6 +31,7 @@ export default class App extends PureComponent {
             topText={topText} 
             bottomText={bottomText} 
             url={url} 
+            color={color}
           />
         </>
     );

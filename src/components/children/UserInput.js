@@ -31,11 +31,11 @@ function UserInput({
 }
 
 UserInput.propTypes = {
-  topText: PropTypes.string.isRequired,
-  bottomText: PropTypes.string.isRequired,
+  topText: PropTypes.string,
+  bottomText: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
-  url: PropTypes.string.isRequired,
-  color: PropTypes.string.isRequired
+  url: PropTypes.string,
+  color: PropTypes.string
 };
 
 export default UserInput;
