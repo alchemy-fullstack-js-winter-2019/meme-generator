@@ -2,6 +2,7 @@ import React, { PureComponent, Fragment } from 'react';
 import styles from '../css/App.css';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
+import MemeForm from './MemeForm.js';
 
 class App extends PureComponent {
   constructor(props) {
@@ -33,20 +34,11 @@ class App extends PureComponent {
       <Fragment>
         <div className={styles.meme}>
           <h1>mEmE GeNeRaToR</h1>
-          <form>
-            <label>
-              Header:
-              <input type="text" name="header" value={this.header} onChange={this.handleChange}></input>
-            </label> 
-            <label>
-              Footer:
-              <input type="text" name="footer" value={this.footer} onChange={this.handleChange}></input>
-            </label>
-            <label>
-              Photo Url:
-              <input type="url" name="url" value={this.url} onChange={this.handleChange}></input>
-            </label>
-          </form>
+          <MemeForm 
+            header={this.header}
+            footer={this.footer}
+            url={this.url}
+            handleChange={this.handleChange}/>
         
           <div ref={this.finalMeme} className={styles.final}>
             {header &&  <p>{header}</p>}
