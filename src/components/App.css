@@ -48,7 +48,7 @@ h1 {
     box-sizing: border-box;
     margin: 0 auto;
     padding-left: 5px;
-    background-image: linear-gradient(to right, #c67558, #c97679, #bf7d95, #ad87a7, #9c91ae, #9093ac, #8894a8, #8494a1, #7b8f99, #738a90, #6c8587, #677f7d);
+    background-image: linear-gradient(to right top, #b9dba6, #a0dbbb, #92d9ce, #92d4dc, #9fcde2, #a8cae5, #b4c6e4, #bfc2e1, #c9c1e3, #d4c0e4, #dfbee2, #ebbdde);
   }
 
   .header {

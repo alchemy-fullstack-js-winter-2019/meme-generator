@@ -17,6 +17,8 @@ export default class App extends Component {
     imgUrl: '',
     headerColor: '#00fdff',
     footerColor: '#ff9300',
+    headerFont: 'monospace',
+    footerFont: 'monospace'
   }
 
   handleChange = ({ target }) => {
@@ -32,7 +34,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { headerText, footerText, imgUrl, headerColor, footerColor } = this.state;
+    const { headerText, footerText, imgUrl, headerColor, footerColor, headerFont, footerFont } = this.state;
     return (
       <>
       <h1>Rainbow Meme Maker</h1>
@@ -44,6 +46,8 @@ export default class App extends Component {
         headerText={headerText}
         footerColor={footerColor}
         footerText={footerText}
+        headerFont={headerFont}
+        footerFont={footerFont}
       />
      
       <NewMeme 
@@ -53,6 +57,8 @@ export default class App extends Component {
         headerColor={headerColor}
         footerText={footerText}
         footerColor={footerColor}
+        headerFont={headerFont}
+        footerFont={footerFont}
       />
       </>
     );

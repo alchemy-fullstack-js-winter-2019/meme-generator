@@ -2,12 +2,16 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './App.css';
 
-function NewMeme({ memeRef, headerText, imgUrl, footerText, headerColor, footerColor }) {
+function NewMeme({ memeRef, headerText, imgUrl, footerText, headerColor, footerColor, headerFont, footerFont }) {
   const headerStyle = {
     color: headerColor,
+    fontFamily: headerFont,
+    fontSize: '20px',
   };
   const footerStyle = {
     color: footerColor,
+    fontFamily: footerFont,
+    fontSize: '20px',
   };
 
   return (
@@ -25,7 +29,10 @@ NewMeme.propTypes = {
   footerText: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
   headerColor: PropTypes.string.isRequired,
-  footerColor: PropTypes.string.isRequired
+  footerColor: PropTypes.string.isRequired,
+  footerFont: PropTypes.string.isRequired,
+  headerFont: PropTypes.string.isRequired
+
 };
 
 export default NewMeme;
