@@ -3,6 +3,7 @@ import styles from '../css/App.css';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import MemeForm from './MemeForm.js';
+// import Meme from './MemeForm.js';
 
 class App extends PureComponent {
   constructor(props) {
@@ -47,6 +48,13 @@ class App extends PureComponent {
           </div>
 
           {url && header && <button onClick={this.createAndSaveMeme}>Save Meme</button>}
+
+          {/* <Meme 
+            ref={this.finalMeme}
+            header={this.header}
+            footer={this.footer}
+            url={this.url}
+            createAndSaveMeme={this.createAndSaveMeme}/> */}
         </div>
       </Fragment>
     );
