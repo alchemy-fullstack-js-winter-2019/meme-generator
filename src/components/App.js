@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
+import styles from './App.css';
 
 class MyClass extends PureComponent {
   state = {
@@ -10,17 +11,18 @@ class MyClass extends PureComponent {
     img: ''
   }
 
-  fileSave = () => {
-    fileSaver.saveAs(this.state.img);
+  fileSave = (image) => {
+    fileSaver.saveAs(image);
   }
 
   textToImage = event => {
     const toImage = document.getElementById('image');
     domToImage.toPng(toImage)
       .then(img => {
-        this.setState({ img });
+        this.fileSave(img);
       });
     event.preventDefault();
+    
   }
 
   updateInput = ({ target }) => {
@@ -31,18 +33,20 @@ class MyClass extends PureComponent {
     const { header, footer, img } = this.state;
 
     return (
-      <div>
+      <div className={styles.container}>
         <h1>Meme Generator</h1>
         <form onSubmit={this.textToImage}>
           <input type='text' name='header' value={header} onChange={this.updateInput} />
           <input type='text' name='footer' value={footer} onChange={this.updateInput} />
-          <input id='image' type='text' name='img' value={img} onChange={this.updateInput} />
+          <input type='text' name='img' value={img} onChange={this.updateInput} />
           <button type='submit'>Save as Image</button>
         </form>
-        <h1>{header}</h1>
-        {img && <button onClick={this.fileSave}>Save File</button>}
-        {img && <img src={img} />}
-        <h2>{footer}</h2>
+        {/* {img && <button onClick={this.fileSave}>Save File</button>} */}
+        <div id='image' className={styles.meme}>
+          <h1>{header}</h1>
+          {img && <img src={img} />}
+          <h2>{footer}</h2>
+        </div>
       </div>
     );
   }

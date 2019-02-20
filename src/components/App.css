@@ -1,0 +1,33 @@
+.meme {
+  display: flex;
+  flex-direction: column;
+  width: 45vw;
+
+  img {
+    position: absolute;
+    height: 350px;
+    width: 650px;
+  }
+
+  h2 {
+    position: relative;
+    top: 185px;
+    left: 450px;
+    color: white;
+  }
+
+  h1 {
+    position: relative;
+    z-index: 1;
+    left: 40px;
+    color: white;
+  }
+}
+
+.container {
+  height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+}
