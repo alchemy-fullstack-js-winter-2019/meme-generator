@@ -1,7 +1,64 @@
-.formattedText {
-  font-size: 0.8em;
+.header {
+  position: relative;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  margin: 20px 0 0 0;
+  width: 500px;
+  z-index: 10;
 }
 
-.text {
+.footer {
+  position: absolute;
+  color: white;
+  text-align: center;
+  font-size: 2em;
+  margin: 0;
+  width: 500px;
+  z-index: 10;
+}
+
+.img {
+  z-index: -10;
+  width: 500px;
+  margin: -40px 0 -40px 0;
+}
+
+.meme {
+  width: 500px;
+  position: relative;
+  margin: 0 auto;
+}
+
+h1 {
+  background: lightgray;
+  text-align: center;
   font-size: 4em;
+  margin: 0;
+}
+
+form {
+  background: navy;
+  margin: 0 0 40px 0;
+  padding: 30px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}
+
+input {
+  padding-right: 10px;
+}
+
+span {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
+button {
+  margin-left: 20px;
+}
+
+* {
+  font-family: 'Staatliches';
 }
