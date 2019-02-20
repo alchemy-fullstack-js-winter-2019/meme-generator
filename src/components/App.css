@@ -28,7 +28,7 @@ h1 {
   }
   input {
     width: 100%;
-    margin: 1em 1em;
+    margin: 0 auto;
   }
   button {
     border-radius: 10px;
