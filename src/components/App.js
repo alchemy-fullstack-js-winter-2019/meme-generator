@@ -13,7 +13,9 @@ class App extends PureComponent{
         url: '',
         topCaption: '',
         bottomCaption: '',
-        meme: null
+        meme: null,
+        fontColor: 'white'
+
 
     };
     handleChange = ({ target }) => {
@@ -30,7 +32,7 @@ class App extends PureComponent{
     };
 
     render() {
-        const { bottomCaption, topCaption, url, meme } = this.state;
+        const { bottomCaption, topCaption, url, meme, fontColor } = this.state;
         return (
             <Fragment>
                 <h1>HELLO WORLD</h1>
@@ -42,6 +44,7 @@ class App extends PureComponent{
                     bottomCaption={bottomCaption}
                     topCaption={topCaption}
                     url={url}
+                    fontColor={fontColor}
                     imageRef={this.imgRef}
 
                 />
