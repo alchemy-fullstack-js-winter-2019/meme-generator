@@ -3,7 +3,7 @@ import React, { PureComponent } from 'react';
 export default class App extends PureComponent {
   constructor(props) {
     super(props);
-    this.formattedTextRef = React.createRef();
+    this.memeTextRef = React.createRef();
   }
 
   state = {
@@ -27,6 +27,8 @@ export default class App extends PureComponent {
       <input onChange={this.handleChange} type="text" name="imgUrl" value={imgUrl}></input>
       <h2>OR</h2>
       <input onChange={this.handleChange} type="file" name="imgUpload" value={imgUpload}></input>
+      <h3 ref={this.memeTextRef}>{headerText}</h3>
+      <h3 ref={this.memeTextRef}>{footerText}</h3>
       </>
     );
   }
