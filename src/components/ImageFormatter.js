@@ -2,7 +2,16 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import styles from '../css/App.css';
 
-function ImageFormatter({ memeRef, header, footer, imageUrl, headerColor, footerColor, footerFont, headerFont }) {
+function ImageFormatter({ 
+  memeRef, 
+  header, 
+  footer, 
+  imageUrl, 
+  headerColor, 
+  footerColor, 
+  footerFont, 
+  headerFont 
+}) {
   return (
     <Fragment>
       <img className={styles.background} src='https://visme.co/blog/wp-content/uploads/2017/07/50-Beautiful-and-Minimalist-Presentation-Backgrounds-037.jpg'/>

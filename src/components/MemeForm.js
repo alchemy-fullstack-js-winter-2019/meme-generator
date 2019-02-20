@@ -31,16 +31,6 @@ function MemeForm({
         </label>
 
         <label>
-          <span>Header Color:</span>
-          <input type='color' name='headerColor' value={headerColor} onChange={handleChange}></input>
-        </label>
-
-        <label>
-          <span>Footer Color:</span>
-          <input type='color' name='footerColor' value={footerColor} onChange={handleChange}></input>
-        </label>
-
-        <label>
           <span>Footer Font:</span>
           <input type='text' name='footerFont' value={footerFont} onChange={handleChange}></input>
         </label>
@@ -48,6 +38,16 @@ function MemeForm({
         <label>
           <span>Header Font:</span>
           <input type='text' name='headerFont' value={headerFont} onChange={handleChange}></input>
+        </label>
+
+        <label>
+          <span>Header Color:</span>
+          <input type='color' name='headerColor' value={headerColor} onChange={handleChange}></input>
+        </label>
+
+        <label>
+          <span>Footer Color:</span>
+          <input type='color' name='footerColor' value={footerColor} onChange={handleChange}></input>
         </label>
 
         <button type="submit">
