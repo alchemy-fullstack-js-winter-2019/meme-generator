@@ -12,8 +12,7 @@ class App extends PureComponent {
   state = {
     header: '',
     footer: '',
-    url: '',
-    img: ''
+    url: ''
   }
 
   handleChange = ({ target }) => {
@@ -54,7 +53,7 @@ class App extends PureComponent {
             <img src={url} />
             {footer && <p>{footer}</p>}
           </div>
-          
+
           {url && header && <button onClick={this.createAndSaveMeme}>Save Meme</button>}
         </div>
       </Fragment>
