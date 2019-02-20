@@ -1,9 +1,10 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
-import fileSaver from 'file-saver';
+// import fileSaver from 'file-saver';
 import TextFormatter from './TextFormatter';
 import FormatDisplay from './FormatDisplay';
+import FileSaver from './FileSaver';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -49,10 +50,6 @@ export default class App extends PureComponent {
       });
   }
 
-  saveFile = () => {
-    fileSaver.saveAs(this.state.img);
-  }
-
   render() {
     const { text, formattedText, font, img  } = this.state;
     return (
@@ -60,15 +57,14 @@ export default class App extends PureComponent {
         <TextFormatter 
           text={text}
           font={font}
-          handleChange={this.handleChange}
-          textToImage={this.textToImage}
+          onChange={this.handleChange}
+          onSubmit={this.textToImage}
         />
         <FormatDisplay 
           formattedText={formattedText}
           formattedTextRef={this.formattedTextRef}
         />
-        {img && <img src={img} />}
-        {img && <button onClick={this.saveFile}>Save Image</button>}
+        {img && <FileSaver img={img} />}
         <button onClick={this.handleClick}>Click</button>
       </>
     );
