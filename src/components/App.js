@@ -1,76 +1,55 @@
 import React, { Fragment, PureComponent } from 'react';
-import figlet from 'figlet';
+import Controls from './Controls';
+import Meme from './Meme';
 import domToImage from 'dom-to-image';
-import FormatText from './TextFormatter';
-import FormatDisplay from './FormatDisplay';
 import FileSaver from './FileSaver';
 
 class App extends PureComponent{
     constructor(props) {
         super(props);
-
         this.imgRef = React.createRef();
     }
-
     state = {
-        clickCount: 0,
-        inputText: '',
-        formattedText: '',
-        font: 'Ghost',
-        img: null
+        url: '',
+        topCaption: '',
+        bottomCaption: '',
+        meme: null
+
     };
-
-    formatText = () => {
-        figlet.text(this.state.inputText, {
-            font: this.state.font,
-            horizontalLayout: 'default',
-            verticalLayout: 'default'
-        }, (err, data) => {
-            if(err) {
-                console.log('Something went wrong...');
-                console.dir(err);
-                return;
-            }
-            console.log(data);
-            this.setState({ formattedText: data });
-        });
-    };
-
-
-
     handleChange = ({ target }) => {
         this.setState({ [target.name]: target.value }, () => {
-            this.formatText();
+            console.log(this.state);
         });
     };
-
-    textToImage = () => {
+    memeToImage = () => {
         event.preventDefault();
         domToImage.toPng(this.imgRef.current)
-            .then(img => {
-                this.setState({ img });
+            .then(meme => {
+                this.setState({ meme });
             });
     };
-    render() {
-        const { inputText, formattedText, img, font } = this.state;
 
+    render() {
+        const { bottomCaption, topCaption, url, meme } = this.state;
         return (
             <Fragment>
-                <FormatText
-                    text={inputText}
-                    font={font}
+                <h1>HELLO WORLD</h1>
+                <Controls
                     handleChange={this.handleChange}
-                    textToImage={this.textToImage}
+                    memeToImage={this.memeToImage}
                 />
-                <FormatDisplay
-                    formattedText={formattedText}
+
+
+                <Meme
+                    bottomCaption={bottomCaption}
+                    topCaption={topCaption}
+                    url={url}
                     imageRef={this.imgRef}
+
                 />
-                {img && <FileSaver img={img} />}
-                
+                {meme && <FileSaver meme={meme} />}
             </Fragment>
         );
     }
 }
-
 export default App;
