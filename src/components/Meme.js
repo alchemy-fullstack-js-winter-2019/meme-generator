@@ -5,14 +5,16 @@ import styles from '../css/App.css';
 function Meme({
   memeRef,
   header,
+  headerColor,
   footer,
+  footerColor,
   url
 }) {
   return (
     <div ref={memeRef} className={styles.final}>
-      {header &&  <p>{header}</p>}
+      {header &&  <p style={{ color: headerColor }}>{header}</p>}
       {url && <img src={url} />}
-      {footer && <p>{footer}</p>}
+      {footer && <p style={{ color: footerColor }}>{footer}</p>}
     </div>
   );
 }
@@ -20,7 +22,9 @@ function Meme({
 Meme.propTypes = {
   memeRef: PropTypes.object,
   header: PropTypes.string,
+  headerColor: PropTypes.string,
   footer: PropTypes.string,
+  footerColor: PropTypes.string,
   url: PropTypes.string
 };
 

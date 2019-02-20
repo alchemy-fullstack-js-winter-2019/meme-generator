@@ -2,6 +2,8 @@
   font-family: sans-serif;
   h1{
     background: black;
+    text-shadow: 4px 4px red;
+    font-size: 50px;
     color: white;
     padding: 30px;
   }

@@ -13,7 +13,9 @@ class App extends Component {
 
   state = {
     header: '',
+    headerColor: '',
     footer: '',
+    footerColor: '',
     url: ''
   }
 
@@ -30,7 +32,7 @@ class App extends Component {
   }
 
   render() {
-    const { header, footer, url } = this.state;
+    const { header, headerColor, footer, footerColor, url } = this.state;
     return (
       <Fragment>
         <div className={styles.meme}>
@@ -38,7 +40,9 @@ class App extends Component {
           
           <MemeForm 
             header={header}
+            headerColor={headerColor}
             footer={footer}
+            footerColor={footerColor}
             url={url}
             handleChange={this.handleChange}/>
           <button onClick={this.createAndSaveMeme}>Save Meme</button>
@@ -46,15 +50,10 @@ class App extends Component {
           <Meme 
             memeRef={this.finalMeme}
             header={header}
+            headerColor={headerColor}
             footer={footer}
+            footerColor={footerColor}
             url={url} />
-
-          {/* <div ref={this.finalMeme} className={styles.final}>
-            {header &&  <p>{header}</p>}
-            <img src={url} />
-            {footer && <p>{footer}</p>}
-          </div> */}
-
 
         </div>
       </Fragment>
