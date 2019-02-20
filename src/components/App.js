@@ -11,7 +11,8 @@ export default class App extends PureComponent {
     header: '',
     footer: '',
     img: '',
-    color: 'white'
+    color: 'white',
+    font: 'arial'
   };
 
   handleChange = ({ target }) => {
@@ -29,7 +30,7 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const { header, footer, img, color } = this.state;
+    const { header, footer, img, color, font } = this.state;
 
     return (
       <>
@@ -38,7 +39,7 @@ export default class App extends PureComponent {
           header={header}
           footer={footer}
           handleChange={this.handleChange}
-          saveImage={this.saveImage}
+          onSubmit={this.saveImage}
         />
         <div id="meme">
           <Meme
@@ -46,6 +47,7 @@ export default class App extends PureComponent {
             header={header}
             footer={footer}
             color={color}
+            font={font}
           />
         </div>
       </>
