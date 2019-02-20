@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import MemeColorFormatter from './MemeColorFormatter';
 
-function MemeForm({ toImage, handleChange, header, footer, imageUrl }) {
+function MemeForm({ toImage, handleChange, header, footer, imageUrl, color }) {
   return (
     <Fragment>
       <form onSubmit={toImage}>
@@ -20,6 +21,8 @@ function MemeForm({ toImage, handleChange, header, footer, imageUrl }) {
           <input type='text' name='imageUrl' value={imageUrl} onChange={handleChange}></input>
         </label>
 
+        <MemeColorFormatter handleChange={handleChange} color={color}/>
+
         <button type="submit">
           Save Meme
         </button>
@@ -34,7 +37,8 @@ MemeForm.propTypes = {
   handleChange: PropTypes.func.isRequired,
   header: PropTypes.string,
   footer: PropTypes.string,
-  imageUrl: PropTypes.string.isRequired
+  imageUrl: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
 };
 
 export default MemeForm;

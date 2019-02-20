@@ -11,6 +11,7 @@ export default class App extends PureComponent {
     header: '', 
     footer: '',
     imageUrl: '',
+    color: 'white',
     meme: ''
   }
 
@@ -28,7 +29,7 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const { header, footer, imageUrl } = this.state;
+    const { header, footer, imageUrl, color } = this.state;
     return (
       <Fragment>
         <h1>Meme Generator</h1>
@@ -37,7 +38,8 @@ export default class App extends PureComponent {
           handleChange={this.handleChange}
           header={header}
           footer={footer}
-          imageUrl={imageUrl}/>
+          imageUrl={imageUrl}
+          color={color}/>
         <ImageFormatter 
           header={header}
           footer={footer}
