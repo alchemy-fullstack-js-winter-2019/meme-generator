@@ -16,14 +16,15 @@ export default class App extends PureComponent {
     header: '', 
     footer: '',
     imageUrl: '',
-    color: 'white',
+    headerColor: '',
+    footerColor: '',
     meme: ''
   }
 
   toImage = event  => {
     event.preventDefault();
-    const image = this.memeRef.current;
-    domToImage.toPng(image)
+    const meme = this.memeRef.current;
+    domToImage.toPng(meme)
       .then(meme => {
         fileSaver.saveAs(meme);
       });
@@ -34,7 +35,7 @@ export default class App extends PureComponent {
   }
 
   render() {
-    const { header, footer, imageUrl, color } = this.state;
+    const { header, footer, imageUrl, footerColor, headerColor } = this.state;
     return (
       <Fragment>
         <h1>Meme Generator</h1>
@@ -44,12 +45,17 @@ export default class App extends PureComponent {
           header={header}
           footer={footer}
           imageUrl={imageUrl}
-          color={color}/>
+          headerColor={headerColor}
+          footerColor={footerColor}
+        />
         <ImageFormatter 
           memeRef={this.memeRef}
           header={header}
           footer={footer}
-          imageUrl={imageUrl}/>
+          imageUrl={imageUrl}
+          headerColor={headerColor}
+          footerColor={footerColor}
+        />
       </Fragment>
     );
   }

@@ -1,6 +1,5 @@
 .header {
   position: relative;
-  color: white;
   text-align: center;
   font-size: 2em;
   width: 500px;
@@ -10,7 +9,6 @@
 
 .footer {
   position: relative;
-  color: white;
   text-align: center;
   width: 500px;
   font-size: 2em;
