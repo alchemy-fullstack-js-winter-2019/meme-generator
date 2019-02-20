@@ -35,17 +35,20 @@ class MyClass extends PureComponent {
     return (
       <div className={styles.container}>
         <h1>Meme Generator</h1>
-        <form onSubmit={this.textToImage}>
-          <input type='text' name='header' value={header} onChange={this.updateInput} />
-          <input type='text' name='footer' value={footer} onChange={this.updateInput} />
-          <input type='text' name='img' value={img} onChange={this.updateInput} />
-          <button type='submit'>Save as Image</button>
-        </form>
-        {/* {img && <button onClick={this.fileSave}>Save File</button>} */}
-        <div id='image' className={styles.meme}>
-          <h1>{header}</h1>
-          {img && <img src={img} />}
-          <h2>{footer}</h2>
+        <div className={styles.form}>
+          <form onSubmit={this.textToImage}>
+            <input type='text' name='header' value={header} onChange={this.updateInput} />
+            <input type='text' name='footer' value={footer} onChange={this.updateInput} />
+            <input type='text' name='img' value={img} onChange={this.updateInput} />
+            <button type='submit'>Save as Image</button>
+          </form>
+        </div>
+        <div className={styles.wrapper}>
+          <div id='image' className={styles.meme}>
+            <h2>{header}</h2>
+            {img && <img src={img} />}
+            <h3>{footer}</h3>
+          </div>
         </div>
       </div>
     );

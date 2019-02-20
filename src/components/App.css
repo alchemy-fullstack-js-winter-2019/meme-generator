@@ -1,33 +1,40 @@
 .meme {
   display: flex;
   flex-direction: column;
-  width: 45vw;
+  position: absolute;
 
   img {
-    position: absolute;
     height: 350px;
     width: 650px;
   }
 
-  h2 {
+  h3 {
     position: relative;
-    top: 185px;
+    bottom: 85px;
     left: 450px;
     color: white;
   }
 
-  h1 {
-    position: relative;
-    z-index: 1;
-    left: 40px;
+  h2 {
+    top: 90px;
     color: white;
+    left: 60px;
+    position: relative;
   }
 }
 
-.container {
-  height: 70vh;
+.wrapper {
+  margin-left: 28%;
+}
+
+.form {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
   justify-content: space-evenly;
+}
+
+.container {
+  h1 {
+    text-align: center;
+  }
 }
