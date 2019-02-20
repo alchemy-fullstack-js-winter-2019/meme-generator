@@ -1,68 +1,71 @@
-/*eslint-disable no-console*/
 import React, { Fragment, PureComponent } from 'react';
-import FileSaver from './FileSaver';
-import FormatDisplay from './FormatDisplay';
-import TextFormatter from './TextFormatter';
-import styles from '../css/App.css';
-import figlet from 'figlet';
+// import styles from '../css/App.css';
 import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 import 'normalize-css';
 
-//class components are used when we need to store state
 export default class App extends PureComponent {
   state = {
-    clicks: 0,
-    text: '',
-    formattedText: '',
-    font: 'DOSRebel',
-    img: ''
+    header: '', 
+    footer: '',
+    imageUrl: '',
+    meme: ''
   }
 
-  textToImage = event => {
+  saveFile = () => {
+    fileSaver.saveAs(this.state.meme);
+  }
+
+  toImage = event  => {
     event.preventDefault();
-    const image = document.getElementById('formattedText');
+    const image = document.getElementById('meme');
     domToImage.toPng(image)
-      .then(img => {
-        this.setState({ img });
+      .then(meme => {
+        this.setState({ meme });
       });
   };
 
-  handleClick = () => {
-    this.setState({ clicks: this.state.clicks + 1 }, () => {
-      console.log(this.state.clicks);
-    });
-  }
-
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value }, () => {
-      this.formatText();
-    });
-  }
-
-  formatText = () => {
-    const { font } = this.state;
-    figlet.text(this.state.text, { font }, (err, formattedText) => {
-      if(err) return console.error(err);
-      this.setState({ formattedText });
-    });
+    this.setState({ [target.name]: target.value });
   }
 
   render() {
+    const { header, footer, imageUrl } = this.state;
     return (
       <Fragment>
+        <h1>Meme Generator</h1>
+        <form onSubmit={this.toImage}>
+          <label>
+            Header:
+            <input type='text' name='header' value={header} onChange={this.handleChange}></input>
+          </label>
 
-        <TextFormatter 
-          text={this.state.text} 
-          font={this.state.font} 
-          handleChange={this.handleChange} 
-          textToImage={this.textToImage}
-        />
-        
-        <h2 className={styles.text}>{this.state.text}</h2>
+          <label>
+            Footer:
+            <input type='text' name='footer' value={footer} onChange={this.handleChange}></input>
+          </label>
 
-        <FormatDisplay formattedText={this.state.formattedText} />
-        
-        {this.state.img && <FileSaver img={this.state.img} saveFile={this.saveFile}/>}
+          <label>
+            Image Url:
+            <input type='text' name='imageUrl' value={imageUrl} onChange={this.handleChange}></input>
+          </label>
+
+          <button type="submit">
+            Create Image
+          </button>
+        </form>
+
+        {this.state.meme && <img src={this.state.meme}/>}
+
+        <button onClick={this.saveFile}>
+            Save Meme
+        </button>
+        <div id="meme">
+          <img src={this.state.imageUrl}/>
+          <p>{this.state.header}</p>
+          <p>{this.state.footer}</p>
+
+        </div>
 
       </Fragment>
     );
