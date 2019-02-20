@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
+import TextFormatter from './TextFormatter';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -53,19 +54,14 @@ export default class App extends PureComponent {
 
   render() {
     const { text, formattedText, font, img  } = this.state;
-    const fontOptions = ['Ghost', 'Weird', 'Chunky', 'Basic'].map(f => {
-      return <option key={f} value={f}>{f}</option>;
-    });
-
     return (
       <>  
-        <form onSubmit={this.textToImage}>
-          <select name="font" value={font} onChange={this.handleChange}>
-            {fontOptions}
-          </select>
-          <input type="text"  name="text" onChange={this.handleChange} value={text} />
-          <button type="submit"> Create Image</button>
-        </form>
+        <TextFormatter 
+          text={text}
+          font={font}
+          handleChange={this.handleChange}
+          textToImage={this.textToImage}
+        />
         <h1>{text}</h1>
         <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
         {img && <img src={img} />}
