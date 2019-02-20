@@ -1,15 +1,16 @@
 h1 {
-  background-color: green;
+  background-color: black;
   color: white;
   padding: 20px;
   margin: 0 auto;
   font-size: 2em;
   text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 .form {
   display: flex;
   flex-wrap: wrap;
-  background-color: grey;
+  background-image: linear-gradient(to right, #c67558, #c97679, #bf7d95, #ad87a7, #9c91ae, #9093ac, #8894a8, #8494a1, #7b8f99, #738a90, #6c8587, #677f7d);
   margin: 0 auto; 
   padding: 50px;
   text-align: center;

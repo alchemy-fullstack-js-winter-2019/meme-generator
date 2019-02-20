@@ -27,7 +27,7 @@ export default class App extends PureComponent {
     event.preventDefault();
     domToImage.toPng(this.memeTextRef.current)
       .then(meme => {
-        this.setState({ meme });
+        fileSaver.saveAs(meme);
       });
   }
 
@@ -69,10 +69,10 @@ export default class App extends PureComponent {
         <button type="submit" onClick={this.saveMeme}>Save My Meme!</button>
       </form>
      
-      <div className={styles.memePreview}>
-        <h3 className={styles.header} ref={this.memeTextRef}>{headerText}</h3>
+      <div ref={this.memeTextRef} className={styles.memePreview}>
+        <h3 className={styles.header}>{headerText}</h3>
         {imgUrl && <img src={imgUrl}></img>}
-        <h3 className={styles.footer} ref={this.memeTextRef}>{footerText}</h3>
+        <h3 className={styles.footer}>{footerText}</h3>
       </div>
       </>
     );
