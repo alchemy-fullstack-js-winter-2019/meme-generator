@@ -7,18 +7,20 @@ export default class App extends PureComponent {
   }
   state = {
     topText: null,
-    bottomText: null
+    bottomText: null,
+    url: null
   }
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   }
   render() {
-    const { topText, bottomText } = this.state;
+    const { topText, bottomText, url } = this.state;
     return (
         <>
           <UserInput 
             topText={topText} 
             bottomText={bottomText} 
+            url={url} 
             handleChange={this.handleChange}
           />
         </>
