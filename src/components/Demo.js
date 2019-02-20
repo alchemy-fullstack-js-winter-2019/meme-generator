@@ -3,6 +3,7 @@ import figlet from 'figlet';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import TextFormatter from './TextFormatter';
+import FormatDisplay from './FormatDisplay';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -62,8 +63,10 @@ export default class App extends PureComponent {
           handleChange={this.handleChange}
           textToImage={this.textToImage}
         />
-        <h1>{text}</h1>
-        <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
+        <FormatDisplay 
+          formattedText={formattedText}
+          formattedTextRef={this.formattedTextRef}
+        />
         {img && <img src={img} />}
         {img && <button onClick={this.saveFile}>Save Image</button>}
         <button onClick={this.handleClick}>Click</button>
