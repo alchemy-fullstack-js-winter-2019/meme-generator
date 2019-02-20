@@ -15,12 +15,19 @@
 }
 
 .final {
-  font-size: 20px;
+  font-size: 40px;
   font-weight: bold;
   text-transform: uppercase;
-  text-align: center;
-  
-  img {
-    width: 400px;
+  /*p {
+    position: absolute;
+    left: 50vw;
+    color: white;
+    font-family: sans-serif;
   }
+  img {
+    position: absolute;
+    left: 25vw;
+    padding: 0px;
+    width: 500px;
+  }*/
 }
