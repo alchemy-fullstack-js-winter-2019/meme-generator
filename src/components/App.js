@@ -9,8 +9,13 @@ class App extends PureComponent {
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value }, () => {
-      console.log(this.state.header);
+      console.log(this.state);
     });
+  }
+
+  handleClick = event => {
+    event.preventDefault();
+    console.log('clicked!');
   }
 
   render() {
@@ -19,9 +24,9 @@ class App extends PureComponent {
         <h1>Meme Generator</h1>
         <form>
           <input type="text" name="header" value={this.header} onChange={this.handleChange}></input>
-          <input type="text" value="footer"></input>
-          <input type="url" value="url"></input>
-          <button>Create Meme</button>
+          <input type="text" name="footer" value={this.footer} onChange={this.handleChange}></input>
+          <input type="url" name="url" value={this.url} onChange={this.handleChange}></input>
+          <button onClick={this.handleClick}>Create Meme</button>
         </form>
       </Fragment>
     );
