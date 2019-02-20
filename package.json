@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --verbose",
     "start": "webpack-dev-server --hot --mode development --devtool eval-source-map",
     "build": "webpack -p"
   },
