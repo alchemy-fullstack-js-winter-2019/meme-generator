@@ -20,7 +20,9 @@
     "url": "https://github.com/JeiWolfei/photo-album/issues"
   },
   "dependencies": {
+    "dom-to-image": "^2.6.0",
     "figlet": "^1.2.1",
+    "file-saver": "^2.0.1",
     "normalize.css": "^8.0.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2"
