@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
 import UserInput from './children/UserInput';
+import DankMemeDisplay from './children/DankMemeDisplay';
 
 export default class App extends PureComponent {
   constructor(props) {
     super(props);
+    this.imgRef = React.createRef();
   }
   state = {
     topText: null,
@@ -24,6 +26,11 @@ export default class App extends PureComponent {
             url={url} 
             color={color} 
             handleChange={this.handleChange}
+          />
+          <DankMemeDisplay
+            topText={topText} 
+            bottomText={bottomText} 
+            url={url} 
           />
         </>
     );
