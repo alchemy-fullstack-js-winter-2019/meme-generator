@@ -47,6 +47,12 @@
     cursor:pointer;
     border-radius: 5px;
   }
+
+  span {
+    margin-left: 10px;
+    font-family: 'Open Sans', sans-serif;
+    color: #555;
+  }
 }
 
 .container {
