@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 // meme url for testing
 // https://upload.wikimedia.org/wikipedia/commons/d/df/Doge_homemade_meme.jpg
 
-function DankMemeDisplay({ topText, bottomText, url, color }) {
+function DankMemeDisplay({ topText, bottomText, url, color, memeRef }) {
   const h3Styles = {
     color: color
   };
   return (
-    <div>
+    <div ref={memeRef}>
       <h3 style={h3Styles}>
         {topText}
       </h3>
@@ -25,7 +25,8 @@ DankMemeDisplay.propTypes = {
   topText: PropTypes.string,
   bottomText: PropTypes.string,
   url: PropTypes.string,
-  color: PropTypes.string
+  color: PropTypes.string,
+  memeRef: PropTypes.object.isRequired
 };
 
 export default DankMemeDisplay;
