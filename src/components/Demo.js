@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import figlet from 'figlet';
 import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 export default class App extends PureComponent {
   constructor(props) {
@@ -46,6 +47,10 @@ export default class App extends PureComponent {
       });
   }
 
+  saveFile = () => {
+    fileSaver.saveAs(this.state.img);
+  }
+
   render() {
     const { text, formattedText, font, img  } = this.state;
     const fontOptions = ['Ghost', 'Weird', 'Chunky', 'Basic'].map(f => {
@@ -64,6 +69,7 @@ export default class App extends PureComponent {
         <h1>{text}</h1>
         <h2 ref={this.formattedTextRef}><pre>{formattedText}</pre></h2>
         {img && <img src={img} />}
+        {img && <button onClick={this.saveFile}>Save Image</button>}
         <button onClick={this.handleClick}>Click</button>
       </>
     );
