@@ -27,7 +27,7 @@ export default class App extends PureComponent {
       });
   };
   saveFile = () => {
-    fileSaver.saveAs(this.memeRef);
+    fileSaver.saveAs(this.state.img);
   }
   render() {
     const { topText, bottomText, url, color, img } = this.state;
