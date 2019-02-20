@@ -24,15 +24,13 @@ export default class App extends PureComponent {
   }
 
   divToImage = event => {
+    console.log('here');
     event.preventDefault();
     domToImage.toPng(this.memeTextRef.current)
       .then(meme => {
+        console.log(meme);
         fileSaver.saveAs(meme);
       });
-  }
-
-  saveMeme = () => {
-    fileSaver.saveAs(this.state.meme);
   }
 
   handleFileUpload = event => {
@@ -44,34 +42,33 @@ export default class App extends PureComponent {
     const { headerText, footerText, imgUrl, imgUpload } = this.state;
     return (
       <>
-      <h1>Meme Generatoooor</h1>
+      <h1>Rainbow Meme Maker</h1>
       <form className={styles.form} onSubmit={this.divToImage}>
 
-        <label> Add Header Text
+        <label> ADD SUM HEADER TEXT
           <input onChange={this.handleChange} type="text" name="headerText" value={headerText}></input>
         </label>
 
-        <label> Add Footer Text
+        <label> ADD SUM FOOTER TEXT
           <input onChange={this.handleChange} type="text" name="footerText" value={footerText}></input>
         </label>
 
-        <label> Import An Image From The Internets
+        <label> IMPORT AN IMAGE FROM THE INTERNETS!
           <input onChange={this.handleChange} type="text" name="imgUrl" value={imgUrl}></input>
         </label>
 
         <h2>OR</h2>
 
-        <label> Upload An Image From Your Computer
+        <label> UPLOAD FROM YOUR COMPUTERZ
           <input onChange={this.handleChange} type="file" name="imgUpload" ref={this.fileInput} value={imgUpload}></input>
-          <button type="submit" onClick={this.handleFileUpload} value={imgUpload}>Upload Image</button>
         </label>
         
-        <button type="submit" onClick={this.saveMeme}>Save My Meme!</button>
+        <button type="submit">Save My Meme!</button>
       </form>
      
       <div ref={this.memeTextRef} className={styles.memePreview}>
         <h3 className={styles.header}>{headerText}</h3>
-        {imgUrl && <img src={imgUrl}></img>}
+        {imgUrl && <img  src={imgUrl}></img>}
         <h3 className={styles.footer}>{footerText}</h3>
       </div>
       </>

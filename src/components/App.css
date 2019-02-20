@@ -12,6 +12,7 @@ h1 {
   flex-wrap: wrap;
   background-image: linear-gradient(to right, #c67558, #c97679, #bf7d95, #ad87a7, #9c91ae, #9093ac, #8894a8, #8494a1, #7b8f99, #738a90, #6c8587, #677f7d);
   margin: 0 auto; 
+  margin-bottom: 20px;
   padding: 50px;
   text-align: center;
   color: white;
@@ -32,29 +33,36 @@ h1 {
   button {
     border-radius: 10px;
     height: 2em;
+    position: relative;
+    top: 20px;
+    left: 73px;
   }
   
 }
 
 .memePreview {
-  margin: 2em auto;
-  width: 300px;
-  
+
   h3 {
-    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: white;
+    box-sizing: border-box;
     margin: 0 auto;
     padding-left: 5px;
+    background-image: linear-gradient(to right, #c67558, #c97679, #bf7d95, #ad87a7, #9c91ae, #9093ac, #8894a8, #8494a1, #7b8f99, #738a90, #6c8587, #677f7d);
   }
 
   .header {
-    top: 23%;
+    width: 300px;
   }
 
   img {
     height: 300px;
     width: 300px;
+    display: block;
+    margin: 0 auto;
   }
   .footer {
-    bottom: 52%;
+    margin: 0 auto;
+    width: 300px;
   }
 }
