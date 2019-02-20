@@ -30,8 +30,11 @@ class App extends PureComponent {
   }
 
   saveMeme = event => {
-    this.memeToImage(event);
-    fileSaver.saveAs(this.state.img);
+    console.log(event);
+    this.memeToImage(event)
+      .then(() => {
+        fileSaver.saveAs(this.state.img);
+      });
   }
 
   render() {
