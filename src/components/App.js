@@ -1,11 +1,11 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { Component, Fragment } from 'react';
 import styles from '../css/App.css';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import MemeForm from './MemeForm.js';
 // import Meme from './MemeForm.js';
 
-class App extends PureComponent {
+class App extends Component {
   constructor(props) {
     super(props);
     this.finalMeme = React.createRef();
