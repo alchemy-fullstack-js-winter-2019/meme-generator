@@ -2,28 +2,24 @@ import React, { PureComponent } from 'react';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 
-class App extends PureComponent { //children can only be pureComponent
+class App extends PureComponent { 
   constructor(props) {
     super(props);
     this.memeRef = React.createRef();
   }
   state = {
     header: '',
-    //headerColor: '#000000,
     footer: '',
     imgUrl:''
   };
 
-  // generateMeme = () => {
-  //   event.preventDeafult();
-  //   console.log('trying', this.memeRef.current);
-  // };
 
   saveFile = () => {
     fileSaver.savesAs(this.state.imgUrl);
   };
 
-  image = event => { //created an image and saved to computer
+  //creates an image and saves to computer
+  image = event => { 
     event.preventDefault();
     //const img = await domToImage.toPng(this.memeRef.current)
     domToImage.toPng(this.memeRef.current)
@@ -35,14 +31,11 @@ class App extends PureComponent { //children can only be pureComponent
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value }, () => {
-     
     });
   };
 
   render() {
     const { header, footer, imgUrl } = this.state;
-
-   
     return (
       <>
       <h1>Generate Your Own Meme</h1>
@@ -61,11 +54,5 @@ class App extends PureComponent { //children can only be pureComponent
     );
   }
 }
-
-
-
-
-
-
 
 export default App;
