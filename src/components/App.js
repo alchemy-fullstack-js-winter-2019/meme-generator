@@ -24,6 +24,7 @@ class App extends PureComponent {
     event.preventDefault();
     domToImage.toPng(this.finalMeme.current)
       .then(img => {
+        console.log(img);
         this.setState({ img });
       });
   }
@@ -38,7 +39,7 @@ class App extends PureComponent {
     return (
       <Fragment>
         <div className={styles.meme}>
-          <h1>Meme Generator</h1>
+          <h1>mEmE GeNeRaToR</h1>
           <form>
             <label>
               Header:
@@ -55,10 +56,10 @@ class App extends PureComponent {
           </form>
         </div>
         <div ref={this.finalMeme} className={styles.final}>
-          <p>{header}</p>
+          {header &&  <p>{header}</p>}
           <img src={url} />
-          <p>{footer}</p>
-          {url && <button onClick={this.saveMeme}>Save Meme</button>}
+          {footer && <p>{footer}</p>}
+          {url && header && <button onClick={this.saveMeme}>Save Meme</button>}
         </div>
       </Fragment>
     );
