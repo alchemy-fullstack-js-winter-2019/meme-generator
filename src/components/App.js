@@ -1,6 +1,5 @@
 import React, { PureComponent }from 'react';
 import domToImage from 'dom-to-image';
-// import FileSaver from './FileSaver';
 
 class App extends PureComponent {
   constructor(props) {

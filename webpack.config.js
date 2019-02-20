@@ -2,6 +2,7 @@ const HtmlPlugin = require('html-webpack-plugin');
 //takes the template html and create for us
 const CleanPlugin = require('clean-webpack-plugin');
 
+// eslint-disable-next-line no-undef
 module.exports = {
   entry: './src/index.js',
   output: {
@@ -33,17 +34,17 @@ module.exports = {
         test: /\.css$/,
         use: [
           {
-          loader: 'style-loader',
-          options: { sourceMap: true }
-        },
-        {
-          loader: 'css-loader',
-          options: {
-            sourceMap: true,
-            modules: true,
-            importLoaders: 1
-        }
-      },
+            loader: 'style-loader',
+            options: { sourceMap: true }
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true,
+              modules: true,
+              importLoaders: 1
+            }
+          },
           {
             loader: 'postcss-loader',
             options: {
