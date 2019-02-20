@@ -5,6 +5,7 @@ function UserInput({
   topText,
   bottomText,
   url,
+  color,
   handleChange
 }) {
   return (
@@ -21,6 +22,10 @@ function UserInput({
         URL: 
         <input type="url" name="url" value={url} onChange={handleChange}></input>
       </label>
+      <label>
+        Text Color:
+        <input type="color" name="color" value={color} onChange={handleChange}></input>
+      </label>
     </>
   );
 }
@@ -29,7 +34,8 @@ UserInput.propTypes = {
   topText: PropTypes.string.isRequired,
   bottomText: PropTypes.string.isRequired,
   handleChange: PropTypes.func.isRequired,
-  url: PropTypes.string.isRequired
+  url: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired
 };
 
 export default UserInput;
