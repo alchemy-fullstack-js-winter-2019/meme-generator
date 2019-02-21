@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { Component } from 'react';
+import Header from './Header';
 
-function App() {
-  return (
-    <h1>Hello World</h1>
-  );
+export default class App extends Component {
+  state = {
+    header: '',
+    footer: '',
+    imageUrl: ''
+  };
+  render() {
+    const { header, footer, image } = this.state;
+    return (
+      <>
+        <Header />
+      </>
+    );
+  }
 }
-
-export default App;

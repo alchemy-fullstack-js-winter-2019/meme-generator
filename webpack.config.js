@@ -1,8 +1,9 @@
 const HtmlPlugin = require('html-webpack-plugin');
 const CleanPlugin = require('clean-webpack-plugin');
 
+/* eslint-disable-next-line no-undef */
 module.exports = {
-  entry: './src/index.js',
+  entry: ['./src/index.js', '@babel/polyfill'],
   output: {
     filename: 'bundle.[hash].js'
   },
@@ -18,10 +19,11 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
+        use:{
           loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env', '@babel/preset-react'],
+            plugins: ['@babel/plugin-proposal-class-properties'],
             cacheDirectory: true
           }
         }
@@ -51,15 +53,15 @@ module.exports = {
               ]
             }
           }
-        ]  
+        ]
       },
       {
         test: /\.(jpg|png|svg)$/,
         use: {
           loader: 'url-loader',
           options: { limit: 1000 }
-        }
+        },
       }
     ]
-  },
+  }
 };
