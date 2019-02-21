@@ -16,6 +16,9 @@ function Controls({ handleChange, memeToImage }) {
                 <label> MEME URL
                     <input type="text" name="url" onChange={handleChange}/>
                 </label>
+                <label> FONT
+                    <input type="text" name="font" onChange={handleChange}/>
+                </label>
                 <label>FONT COLOR
                     <select name="fontColor" onChange={handleChange}>
                         <option value="black">Black</option>

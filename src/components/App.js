@@ -15,7 +15,8 @@ class App extends PureComponent{
         topCaption: '',
         bottomCaption: '',
         meme: null,
-        fontColor: 'white'
+        fontColor: 'white',
+        font: 'impact'
 
 
     };
@@ -33,7 +34,7 @@ class App extends PureComponent{
     };
 
     render() {
-        const { bottomCaption, topCaption, url, meme, fontColor } = this.state;
+        const { bottomCaption, topCaption, url, meme, fontColor, font } = this.state;
         return (
             <div className={styles.app}>
                 <h1>Psstt... You kids want to buy some memes?</h1>
@@ -45,6 +46,7 @@ class App extends PureComponent{
                     bottomCaption={bottomCaption}
                     topCaption={topCaption}
                     url={url}
+                    font={font}
                     fontColor={fontColor}
                     imageRef={this.imgRef}
 
