@@ -5,7 +5,8 @@ import DisplayOutput from './Display';
 export default class App extends Component {
   
   state = {
-    header: ''
+    header: '',
+    footer: ''
   };
 
   handleChange = ({ target }) => {
@@ -17,7 +18,7 @@ export default class App extends Component {
       header,
       // headerColor,
       // headerFont, 
-      // footer,
+      footer
       // footerColor,
       // footerFont, 
       // imageUrl 
@@ -31,7 +32,7 @@ export default class App extends Component {
           header={header}
           // headerColor={headerColor}
           // headerFont={headerFont} 
-          // footer={footer}
+          footer={footer}
           // footerColor={footerColor}
           // footerFont={footerFont} 
           // imageUrl={imageUrl}
@@ -40,6 +41,7 @@ export default class App extends Component {
         />
         <DisplayOutput 
           header={header}
+          footer={footer}
         />
       </>
     );
