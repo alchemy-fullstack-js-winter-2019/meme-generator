@@ -1,0 +1,69 @@
+@media screen and (min-width: 375px) {
+  * {
+    z-index: 10;
+  }
+  h1 {
+    color: black;
+    text-align: center;
+    text-decoration: underline;
+    -webkit-text-stroke: .2pt;
+    -webkit-text-fill-color: red;
+    letter-spacing: .04em;
+    background: black;
+  }
+  h2 {
+    color: black;
+    -webkit-text-stroke: .2pt;
+    -webkit-text-fill-color: red;
+    background: black;
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 50%;
+    letter-spacing: .04em;
+    font-size: 20px;
+  }
+  .display {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+  }
+  input {
+    width: 50%;
+    border: 1pt solid black;
+    text-align: center;
+    height: 30px;
+    background: red;
+    letter-spacing: .05em;
+  }
+  input:hover {
+   color: white;
+   background: black;
+  }
+  ::placeholder {
+    color: white;
+    letter-spacing: .2em;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  h2 {
+    width: 30%;
+    letter-spacing: .04em;
+    font-size: 25px;
+  }
+  h1 {
+    color: black;
+    text-align: center;
+    text-decoration: underline;
+    -webkit-text-stroke: .2pt;
+    -webkit-text-fill-color: red;
+    letter-spacing: .04em;
+    background: black;
+    width: 50%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
