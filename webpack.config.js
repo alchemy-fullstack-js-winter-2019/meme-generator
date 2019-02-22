@@ -4,7 +4,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 
 // eslint-disable-next-line no-undef
 module.exports = {
-  entry: './src/index.js',
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
     filename: 'bundle.[hash].js'
     //change this name on every build

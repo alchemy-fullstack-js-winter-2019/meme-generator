@@ -45,6 +45,7 @@
     "file-saver": "^2.0.1"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.2.5",
     "dom-to-image": "^2.6.0",
     "figlet": "^1.2.1",
     "react": "^16.8.2",

@@ -2,15 +2,26 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 
-function DisplayMeme({ header, footer, imgUrl }) {
+function DisplayMeme({ memeRef, header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl }) {
+  let fontSize = `${100 - header.length}px`;
+  const headerStyle = {
+    color: headerColor,
+    fontFamily: headerFont,
+    fontSize
+  };
+
+  const footerStyle = {
+    color: footerColor,
+    fontFamily: footerFont,
+    fontSize
+  };
+  
   return (
-  <>
-  <div>
-    <h2>{header}</h2>
-    <img src={imgUrl} />
-    <h2>{footer}</h2>
-  </div>
-  </>
+    <div ref={memeRef}>
+      <h2 style={headerStyle}>{header}</h2>
+      <img src={imgUrl} />
+      <h2 style={footerStyle}>{footer}</h2>
+    </div>
   );
 }
 
@@ -19,10 +30,10 @@ DisplayMeme.propTypes = {
   header: PropTypes.string.isRequired,
   footer: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
-  // headerColor: PropTypes.string.isRequired,
-  // footerColor: PropTypes.string.isRequired,
-  // headerFont: PropTypes.string.isRequired,
-  // footerFont: PropTypes.string.isRequired,
+  headerColor: PropTypes.string.isRequired,
+  footerColor: PropTypes.string.isRequired,
+  headerFont: PropTypes.string.isRequired,
+  footerFont: PropTypes.string.isRequired,
 };
 
 export default DisplayMeme;

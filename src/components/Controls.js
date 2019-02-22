@@ -1,32 +1,59 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Controls({ header, footer, imgUrl, onChange, onSubmit }) {
+function Controls({ header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl, onChange, onSubmit }) {
   return (
-    <form className={styles.styles} onSubmit= {this.textToImage}>
+    <form onSubmit={onSubmit}>
       <div>
-        <label>Header</label>
-        <input type="text" name="header" value={header} onChange={this.handleChange} />
+        <label> Header
+          <TextControl name="header" text={header} color={headerColor} font={headerFont} onChange={onChange} />
+        </label>
       </div>
       <div>
-        <label>URL</label>
-        <input type="text" name="imgUrl" value={imgUrl} onChange={this.handleChange} />
+        <label>Footer
+          <TextControl name="footer" text={footer} color={footerColor} font={footerFont} onChange={onChange} />
+        </label>
       </div>
-      <div>
-        <label>Footer</label>
-        <input type="text" name="footer" value={footer} onChange={this.handleChange} />
-      </div>
-      <h1>{header}</h1>
-      {imgUrl && <imgUrl src={imgUrl} />}
-      {imgUrl && <button onClick={this.saveFile}>Save File</button>}
-     <h2>{footer}</h2> */}
+      <label>URL</label>
+      <input type="url" name="imgUrl" value={imgUrl} onChange={onChange} />
+      <button type="submit">Save Meme</button>
     </form>
   );
-
-Controls.PropTypes = {
-  header.PropTypes.string.isRequired,
-  footer.PropTypes.string.isRequired,
-  header.PropTypes.string.isRequired,
-  header.PropTypes.string.isRequired,
-
 }
+  
+Controls.propTypes = {
+  header: PropTypes.string.isRequired,
+  headerColor: PropTypes.string.isRequired,
+  headerFont: PropTypes.string.isRequired,
+  footer: PropTypes.string.isRequired,
+  footerColor: PropTypes.string.isRequired,
+  footerFont: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
+};
+
+function TextControl({ name, text, color, font, onChange }) {
+  return (
+    <>
+      <input type="text" name={name} value={text} onChange={onChange} />
+      <input type="color" name={`${name}Color`} value={color} onChange={onChange} />
+      <input type="text" name={`${name}Font`} value={font} onChange={onChange} />
+    </>
+  );
+}
+
+TextControl.propTypes = {
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
+  color: PropTypes.string.isRequired,
+  font: PropTypes.string.isRequired,
+  onChange: PropTypes.func.isRequired
+};
+
+export default Controls;
+
+
+
+
+
