@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Controller from './Controller';
-
+import DisplayOutput from './Display';
 
 export default class App extends Component {
   
@@ -35,8 +35,11 @@ export default class App extends Component {
           // footerColor={footerColor}
           // footerFont={footerFont} 
           // imageUrl={imageUrl}
-          // onChange={this.handleChange}
+          onChange={this.handleChange}
           // onSubmit={this.generateMeme}
+        />
+        <DisplayOutput 
+          header={header}
         />
       </>
     );

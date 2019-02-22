@@ -1,16 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Display({ title }) {
+function DisplayOutput({ header }) {
+  let fontSize = `${100 - header.length}px`;
+  const headerStyle = {
+    fontSize
+  };
+
   return (
-    <>
-      <h2>{title}</h2>
-    </>
+    <div>
+      <h2 style={headerStyle}>{header}</h2>
+    </div>
   );
 }
 
-Display.propTypes = {
-  title: PropTypes.string.isRequired
+DisplayOutput.propTypes = {
+  header: PropTypes.string.isRequired
 };
 
-export default Display;
+export default DisplayOutput;
