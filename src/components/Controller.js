@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Controller({ header, footer, imageUrl, headerColor, headerFont, footerColor, footerFont, fontOptions, onChange }) {
+function Controller({ header, footer, imageUrl, headerColor, headerFont, footerColor, footerFont, fontOptions, onChange, onSubmit }) {
   return (
-    <form>
+    <form onSubmit={onSubmit}>
       <label>Top Text:</label>
       <TextController name="header" text={header} color={headerColor} onChange={onChange}/>
       <label>Choose Font:</label>
@@ -33,17 +33,18 @@ Controller.propTypes = {
   footerColor: PropTypes.string.isRequired,
   footerFont: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
-  font: PropTypes.string.isRequired,
-  fontOptions: PropTypes.string.isRequired,
-  onChange: PropTypes.func.isRequired
+  font: PropTypes.string,
+  fontOptions: PropTypes.array,
+  onChange: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired
 };
 
-function TextController({ name, onChange, color, text, font }) {
+function TextController({ name, onChange, color, text }) {
   return (
     <>
       <input type="text" name={name} value={text} onChange={onChange}/>
       <input type="color" name={`${name}Color`} value={color} onChange={onChange} />
-      {/* <input type="text" name={`${name}Font`} value={font} onChange={onChange} /> */}
+      
     </>
   );
 }

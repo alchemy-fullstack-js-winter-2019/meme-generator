@@ -3,7 +3,7 @@ const CleanPlugin = require('clean-webpack-plugin');
 
 /* eslint-disable-next-line no-undef */
 module.exports = {
-  entry: ['./src/index.js', '@babel/polyfill'],
+  entry: ['@babel/polyfill', './src/index.js'],
   output: {
     filename: 'bundle.[hash].js'
   },

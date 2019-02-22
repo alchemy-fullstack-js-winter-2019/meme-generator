@@ -1,17 +1,25 @@
 import React, { Component } from 'react';
 import Controller from './Controller';
 import DisplayOutput from './Display';
+import domToImage from 'dom-to-image';
+import fileSaver from 'file-saver';
 
 export default class App extends Component {
+  memeRef = React.createRef();
 
   state = {
     header: '',
     headerColor: '#000000',
-    headerFont: 'monospace',
+    headerFont: 'impact',
     footer: '',
     footerColor: '#000000',
-    footerFont: 'monospace',
+    footerFont: 'impact',
     imageUrl: ''
+  };
+  generateMeme = async(event) => {
+    event.preventDefault();
+    const img = await domToImage.toPng(this.memeRef.current);
+    fileSaver.saveAs(img);
   };
 
   handleChange = ({ target }) => {
@@ -48,6 +56,7 @@ export default class App extends Component {
           footerFont={footerFont}
           fontOptions={fontOptions}
           onChange={this.handleChange}
+          onSubmit={this.generateMeme}
         />
 
         <DisplayOutput 
@@ -58,6 +67,7 @@ export default class App extends Component {
           headerFont={headerFont}
           footerColor={footerColor}
           footerFont={footerFont}
+          memeRef={this.memeRef}
         />
       </>
     );
