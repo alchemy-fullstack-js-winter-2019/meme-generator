@@ -5,9 +5,7 @@ import Controller from './Controller';
 export default class App extends Component {
   
   state = {
-    header: '',
-    footer: '',
-    imageUrl: ''
+    header: ''
   };
 
   handleChange = ({ target }) => {
@@ -17,12 +15,12 @@ export default class App extends Component {
   render() {
     const { 
       header,
-      headerColor,
-      headerFont, 
-      footer,
-      footerColor,
-      footerFont, 
-      imageUrl 
+      // headerColor,
+      // headerFont, 
+      // footer,
+      // footerColor,
+      // footerFont, 
+      // imageUrl 
     } 
       = this.state;
     return (
@@ -31,16 +29,15 @@ export default class App extends Component {
 
         <Controller 
           header={header}
-          headerColor={headerColor}
-          headerFont={headerFont} 
-          footer={footer}
-          footerColor={footerColor}
-          footerFont={footerFont} 
-          imageUrl={imageUrl}
-          onChange={this.handleChange}
-          onSubmit={this.generateMeme}
+          // headerColor={headerColor}
+          // headerFont={headerFont} 
+          // footer={footer}
+          // footerColor={footerColor}
+          // footerFont={footerFont} 
+          // imageUrl={imageUrl}
+          // onChange={this.handleChange}
+          // onSubmit={this.generateMeme}
         />
-        
       </>
     );
   }
