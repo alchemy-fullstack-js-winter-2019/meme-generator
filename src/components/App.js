@@ -30,7 +30,7 @@ export default class App extends Component {
     } 
     = this.state;
     
-    const fontOptions = ['monospace', 'serif', 'fantasy'].map(f => {
+    const fontOptions = ['impact', 'monospace', 'serif', 'fantasy'].map(f => {
       return <option key={f} value={f}>{f}</option>;
     });
 
