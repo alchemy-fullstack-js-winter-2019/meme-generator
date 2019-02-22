@@ -10,6 +10,7 @@ export default class App extends Component {
     headerFont: 'monospace',
     footer: '',
     footerColor: '#000000',
+    footerFont: 'monospace',
     imageUrl: ''
   };
 
@@ -24,9 +25,14 @@ export default class App extends Component {
       headerFont,
       footer, 
       footerColor,
+      footerFont,
       imageUrl 
     } 
-      = this.state;
+    = this.state;
+    
+    const fontOptions = ['monospace', 'serif', 'fantasy'].map(f => {
+      return <option key={f} value={f}>{f}</option>;
+    });
 
     return (
       <>
@@ -39,8 +45,11 @@ export default class App extends Component {
           headerColor={headerColor}
           headerFont={headerFont}
           footerColor={footerColor}
+          footerFont={footerFont}
+          fontOptions={fontOptions}
           onChange={this.handleChange}
         />
+
         <DisplayOutput 
           header={header}
           footer={footer}
@@ -48,6 +57,7 @@ export default class App extends Component {
           headerColor={headerColor}
           headerFont={headerFont}
           footerColor={footerColor}
+          footerFont={footerFont}
         />
       </>
     );

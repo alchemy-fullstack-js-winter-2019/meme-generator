@@ -1,11 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Controller({ header, footer, imageUrl, headerColor, headerFont, footerColor, onChange }) {
+function Controller({ header, footer, imageUrl, headerColor, headerFont, footerColor, footerFont, font, fontOptions, onChange }) {
   return (
     <form>
       <TextController name="header" text={header} color={headerColor} font={headerFont} onChange={onChange}/>
-      <TextController name="footer" text={footer} color={footerColor}onChange={onChange}/>
+      <TextController name="footer" text={footer} color={footerColor} font={footerFont} onChange={onChange}/>
+      <select name='font' onChange={onChange} value={font}>
+        {fontOptions}
+      </select>
       <input type="url" name="imageUrl" value={imageUrl} onChange={onChange}/>
       <button type="submit">Submit</button>
     </form>
@@ -18,6 +21,7 @@ Controller.propTypes = {
   headerFont: PropTypes.string.isRequired,
   footer: PropTypes.string.isRequired,
   footerColor: PropTypes.string.isRequired,
+  footerFont: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 };

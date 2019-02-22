@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function DisplayOutput({ header, footer, headerColor, headerFont, footerColor, imageUrl }) {
+function DisplayOutput({ header, footer, headerColor, headerFont, footerColor, footerFont, imageUrl }) {
   let fontSize = `${100 - header.length}px`;
   const headerStyle = {
     fontSize,
@@ -11,7 +11,8 @@ function DisplayOutput({ header, footer, headerColor, headerFont, footerColor, i
 
   const footerStyle = {
     fontSize,
-    color: footerColor
+    color: footerColor,
+    fontFamily: footerFont
   };
 
   return (
@@ -29,7 +30,8 @@ DisplayOutput.propTypes = {
   imageUrl: PropTypes.string.isRequired,
   headerColor: PropTypes.string.isRequired,
   headerFont: PropTypes.string.isRequired,
-  footerColor: PropTypes.string.isRequired
+  footerColor: PropTypes.string.isRequired,
+  footerFont: PropTypes.string.isRequired
 };
 
 export default DisplayOutput;
