@@ -7,6 +7,8 @@ export default class App extends Component {
   state = {
     header: '',
     footer: '',
+    headerColor: '#000000',
+    footerColor: '#000000',
     imageUrl: ''
   };
 
@@ -18,6 +20,8 @@ export default class App extends Component {
     const { 
       header,
       footer, 
+      headerColor,
+      footerColor,
       imageUrl 
     } 
       = this.state;
@@ -30,12 +34,16 @@ export default class App extends Component {
           header={header}
           footer={footer}
           imageUrl={imageUrl}
+          headerColor={headerColor}
+          footerColor={footerColor}
           onChange={this.handleChange}
         />
         <DisplayOutput 
           header={header}
           footer={footer}
           imageUrl={imageUrl}
+          headerColor={headerColor}
+          footerColor={footerColor}
         />
       </>
     );
