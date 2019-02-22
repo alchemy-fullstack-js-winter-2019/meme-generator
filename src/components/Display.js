@@ -1,12 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function DisplayOutput({ header, footer, headerColor, footerColor, imageUrl }) {
+function DisplayOutput({ header, footer, headerColor, headerFont, footerColor, imageUrl }) {
   let fontSize = `${100 - header.length}px`;
   const headerStyle = {
     fontSize,
-    color: headerColor
+    color: headerColor,
+    fontFamily: headerFont
   };
+
   const footerStyle = {
     fontSize,
     color: footerColor
@@ -26,6 +28,7 @@ DisplayOutput.propTypes = {
   footer: PropTypes.string.isRequired,
   imageUrl: PropTypes.string.isRequired,
   headerColor: PropTypes.string.isRequired,
+  headerFont: PropTypes.string.isRequired,
   footerColor: PropTypes.string.isRequired
 };
 

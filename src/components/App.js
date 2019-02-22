@@ -6,8 +6,9 @@ export default class App extends Component {
 
   state = {
     header: '',
-    footer: '',
     headerColor: '#000000',
+    headerFont: 'monospace',
+    footer: '',
     footerColor: '#000000',
     imageUrl: ''
   };
@@ -19,8 +20,9 @@ export default class App extends Component {
   render() {
     const { 
       header,
-      footer, 
       headerColor,
+      headerFont,
+      footer, 
       footerColor,
       imageUrl 
     } 
@@ -35,6 +37,7 @@ export default class App extends Component {
           footer={footer}
           imageUrl={imageUrl}
           headerColor={headerColor}
+          headerFont={headerFont}
           footerColor={footerColor}
           onChange={this.handleChange}
         />
@@ -43,6 +46,7 @@ export default class App extends Component {
           footer={footer}
           imageUrl={imageUrl}
           headerColor={headerColor}
+          headerFont={headerFont}
           footerColor={footerColor}
         />
       </>
