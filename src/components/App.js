@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Form from './Form';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
+import 'normalize-css';
 import Display from './Display';
-
+import MemeForm from './MemeForm';
+import styles from './App.css';
 export default class App extends Component {
   constructor(props) {
     super(props);
@@ -17,9 +18,10 @@ export default class App extends Component {
     footerColor: '',
     headerFont: '',
     footerFont: 'cambria',
+    meme: ''
   }
 
-  Meme = async(event) => {
+  makeMeme = async(event) => {
     event.preventDefault();
     const img = await domToImage.toPng(this.memeRef.current);
     fileSaver.saveAs(img); 
@@ -33,28 +35,29 @@ export default class App extends Component {
     const { header, footer, imgUrl, headerColor, footerColor, headerFont, footerFont } = this.state;
     return (
       <>
-        <h1>Meme Generator</h1>
-        <Form
-          header={header}
-          footer={footer}
-          imgUrl={imgUrl}
-          headerColor={headerColor}
-          headerFont={headerFont}
-          footerColor={footerColor}
-          footerFont={footerFont}
-          onChange={this.handleChange}
-          onSubmit={this.Meme}
-        />
-        <Display
-          memeRef={this.memeRef}
-          header={header}
-          footer={footer}
-          imgUrl={imgUrl}
-          headerColor={headerColor}
-          headerFont={headerFont}
-          footerColor={footerColor}
-          footerFont={footerFont}
-        />
+        <div className={styles.meme}>
+          <h1>Meme Generator</h1>
+          <MemeForm
+            header={header}
+            footer={footer}
+            imgUrl={imgUrl}
+            headerColor={headerColor}
+            headerFont={headerFont}
+            footerColor={footerColor}
+            footerFont={footerFont}
+            onChange={this.handleChange}
+            onSubmit={this.makeMeme} 
+          />
+          <Display
+            memeRef={this.memeRef}
+            header={header}
+            footer={footer}
+            imgUrl={imgUrl}
+            headerColor={headerColor}
+            footerColor={footerColor}
+            headerFont={headerFont}
+            footerFont={footerFont} />
+        </div>
       </>
     );
   }

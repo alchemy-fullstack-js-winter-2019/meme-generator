@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-function Form({ header, footer, imgUrl, headerColor, footerColor, headerFont, footerFont, onChange, onSubmit }) {
+function MemeForm({ header, footer, imgUrl, headerColor, footerColor, headerFont, footerFont, onChange, onSubmit }) {
   return (
     <form onSubmit={onSubmit}>
       <TextControl name="header" text={header} color={headerColor} font={headerFont} onChange={onChange} />
@@ -12,7 +12,7 @@ function Form({ header, footer, imgUrl, headerColor, footerColor, headerFont, fo
   );
 }
 
-Form.propTypes = {
+MemeForm.propTypes = {
   header: PropTypes.string.isRequired,
   headerColor: PropTypes.string.isRequired,
   headerFont: PropTypes.string.isRequired,
@@ -24,21 +24,22 @@ Form.propTypes = {
   onSubmit: PropTypes.func.isRequired
 };
 
-function TextControl({ color, font, onChange }) {
+function TextControl({ name, text, color, font, onChange }) {
   return (
     <>
+      <input type="text" name={name} value={text} onChange={onChange} />
       <input type="color" name={`${name}Color`} value={color} onChange={onChange} />
-      <input type="text" name={`${name}Font`} value={font} onChange={onChange} />  
+      <input type="text" name={`${name}Font`} value={font} onChange={onChange} />
     </>
   );
 }
 
 TextControl.propTypes = {
-  font: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  text: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
+  font: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired
 };
 
-
-
-export default Form;
+export default MemeForm;

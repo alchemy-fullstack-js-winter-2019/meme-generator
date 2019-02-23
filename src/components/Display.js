@@ -14,11 +14,12 @@ function Display({ header, footer, imgUrl, headerColor, footerColor, headerFont,
     fontSize
   };
 
-  return (<div ref={memeRef}>
-    <h2 style={headerStyle}>{header}</h2>
-    <img src={imgUrl} />
-    <h2 style={footerStyle}>{footer}</h2>
-  </div>
+  return (  
+    <div ref={memeRef}>
+      <p style={headerStyle}>{header}</p>
+      <img src={imgUrl} />
+      <p style={footerStyle}>{footer}</p>
+    </div>
   );
 }
 
