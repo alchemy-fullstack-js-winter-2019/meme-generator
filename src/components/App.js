@@ -55,7 +55,11 @@ class App extends Component {
       <DisplayMeme
         memeRef={this.memeRef}
         header={header}
+        headerColor={headerColor}
+        headerFont={headerFont}
         footer={footer}
+        footerColor={footerColor}
+        footerFont={footerFont}
         imgUrl={imgUrl}
       />
       </>
