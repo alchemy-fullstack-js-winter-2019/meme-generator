@@ -7,30 +7,30 @@ export default class App extends PureComponent {
     footer: ''
   }
 
-  onChange = ({ target }) => {
+  handleChange = ({ target }) => {
     this.setState({ img: target.value });
   }
 
   render() {
     return (
       <>
-        <div>
-          <h1>Meme Generator</h1>
-          <p>Upload Image</p>
-          <input type="file" onChange={this.onChange} value={this.state.img} />
-        </div>
-        <div>
-          <p>Photo URL</p>
+        <h1>Meme Generator</h1>
+        <form>
+          <label>Upload Image</label>
+          <input type="file" onChange={this.handleChange} value={this.state.img} />
+        
+          <label>Photo URL</label>
           <input type="url"/>
-        </div>
-        <div>
-          <p>Header</p>
+      
+          <label>Header</label>
           <input type="text"/>
-        </div>
-        <div>
-          Footer
+        
+          <label>Footer</label>
           <input type="text"/>
-        </div>
+
+          <button>Save MEME</button>
+        </form>
+       
       </>
     );
   }

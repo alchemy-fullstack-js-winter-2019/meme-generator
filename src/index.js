@@ -1,9 +1,9 @@
 import React from 'react';
 import { render } from 'react-dom';
-import App from './components/App.js';
+import MemeApp from './components/Meme.js';
 
 render(
-  <App />,
+  <MemeApp />,
   document.getElementById('root')
  
 );
