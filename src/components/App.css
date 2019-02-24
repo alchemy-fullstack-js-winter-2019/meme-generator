@@ -2,43 +2,45 @@ form {
   display: flex;
   flex-wrap: wrap;
   background-color: rgb(162, 226, 226);
-  margin: 0 auto; 
+  margin: 10px; 
   margin-bottom: 50px;
   padding: 50px;
   text-align: center;
-  color: yellow;
+  color: rgb(175, 45, 13);
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 input {
   width: 100%;
-  margin-left: 100px;
+  margin-left: 20px;
   margin-right: 100px;
 }
 
 img {
   display: flex;
-  margin-left: 250px;
-  width: 60%;
-  height: 60%;
+  margin-left: 200px;
+  width: 30%;
+  height: 30%;
 }
 
 
-button {
-
+button:hover {
+  cursor: pointer;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
   box-shadow: 30px;
   padding: 10px;
+  -webkit-transition-duration: 0.4s;
 }
 
 header {
   border-color: solid rgb(95, 22, 22);
-  margin: 20px;
+  margin: 0px;
   padding: 20px;
 }
 
 h1 {
+  text-align: center;
   background-color: teal;
   border-color: solid rgb(80, 9, 9);
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  font-size: adjust;
 }

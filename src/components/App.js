@@ -14,10 +14,10 @@ export default class App extends Component {
     header: '',
     footer: '',
     imgUrl: '',
-    headerColor: 'cambria',
+    headerColor: '',
     footerColor: '',
     headerFont: '',
-    footerFont: 'cambria',
+    footerFont: '',
     meme: ''
   }
 
@@ -36,7 +36,7 @@ export default class App extends Component {
     return (
       <>
         <div className={styles.meme}>
-          <h1>Meme Generator</h1>
+          <h1>Welcome to the Meme Generator</h1>
           <MemeForm
             header={header}
             footer={footer}

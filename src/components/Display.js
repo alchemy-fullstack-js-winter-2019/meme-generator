@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './App.css';
 
 function Display({ header, footer, imgUrl, headerColor, footerColor, headerFont, footerFont, memeRef }) {
   let fontSize = `${100 - header.length}px`;
@@ -15,7 +16,7 @@ function Display({ header, footer, imgUrl, headerColor, footerColor, headerFont,
   };
 
   return (  
-    <div ref={memeRef}>
+    <div className={styles} ref={memeRef}>
       <p style={headerStyle}>{header}</p>
       <img src={imgUrl} />
       <p style={footerStyle}>{footer}</p>
