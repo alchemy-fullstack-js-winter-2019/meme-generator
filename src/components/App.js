@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import domToImage from 'dom-to-image';
+import DisplayMeme from '../components/DisplayMeme';
 import fileSaver from 'file-saver';
 
 class App extends PureComponent { 
@@ -45,11 +46,12 @@ class App extends PureComponent {
         <input type="text" name="imgUrl" value={this.state.imgUrl} onChange={this.handleChange} />
         <button type="submit" name="image">Save Meme</button>
       </form>
-      <div ref={this.memeRef}> 
-        <h1>{header}</h1>
-        {imgUrl && <img src={imgUrl}/>}
-        <h2>{footer}</h2>
-      </div>
+      <DisplayMeme
+        memeRef={this.memeRef}
+        header={header}
+        footer={footer}
+        imgUrl={imgUrl}
+      />
       </>
     );
   }
