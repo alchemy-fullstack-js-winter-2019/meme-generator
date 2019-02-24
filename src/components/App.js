@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import domToImage from 'dom-to-image';
 import DisplayMeme from '../components/DisplayMeme';
 import fileSaver from 'file-saver';
+import ControlChange from '../components/ControlChange';
 
 class App extends Component { 
   constructor(props) {
@@ -10,7 +11,11 @@ class App extends Component {
   }
   state = {
     header: '',
+    headerColor: '#4286f4',
+    headerFont: 'fantasy', 
     footer: '',
+    footerColor: '#4286f4',
+    footerFont: 'fantasy',
     imgUrl:''
   };
 
@@ -32,17 +37,21 @@ class App extends Component {
   };
 
   render() {
-    const { header, footer, imgUrl } = this.state;
+    const { header, footer, imgUrl, headerColor, headerFont, footerColor, footerFont } = this.state;
     return (
       <>
       <h1>Generate Your Own Meme</h1>
-      <form onSubmit={this.image}>
-       
-        Header: <input type="text" name="header" value={this.state.header} onChange={this.handleChange}/>
-        Footer: <input type="text" name="footer" value={this.state.footer} onChange={this.handleChange} />
-        Image Url: <input type="url" name="imgUrl" value={imgUrl} onChange={this.handleChange} />
-        <button type="submit" name="image">Save Meme</button>
-      </form>
+      <ControlChange
+        header={header}
+        headerColor={headerColor}
+        headerFont={headerFont}
+        footer={footer}
+        footerColor={footerColor}
+        footerFont={footerFont}
+        imgUrl={imgUrl}
+        onChange={this.handleChange}
+        onSubmit={this.image}
+      />
       <DisplayMeme
         memeRef={this.memeRef}
         header={header}
@@ -55,3 +64,11 @@ class App extends Component {
 }
 
 export default App;
+
+
+// <form onSubmit={this.image}>
+// Header: <input type="text" name="header" value={this.state.header} onChange={this.handleChange}/>
+// Footer: <input type="text" name="footer" value={this.state.footer} onChange={this.handleChange} />
+// Image Url: <input type="url" name="imgUrl" value={imgUrl} onChange={this.handleChange} />
+// <button type="submit" name="image">Save Meme</button>
+// </form>
