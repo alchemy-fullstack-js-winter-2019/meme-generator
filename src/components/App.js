@@ -14,8 +14,10 @@ class App extends Component {
   state = {
     header: '',
     headerColor: '',
+    headerFont: '',
     footer: '',
     footerColor: '',
+    footerFont: '',
     url: ''
   }
 
@@ -32,7 +34,7 @@ class App extends Component {
   }
 
   render() {
-    const { header, headerColor, footer, footerColor, url } = this.state;
+    const { header, headerColor, headerFont, footer, footerColor, footerFont, url } = this.state;
     return (
       <Fragment>
         <div className={styles.meme}>
@@ -41,8 +43,10 @@ class App extends Component {
           <MemeForm 
             header={header}
             headerColor={headerColor}
+            headerFont={headerFont}
             footer={footer}
             footerColor={footerColor}
+            footerFont={footerFont}
             url={url}
             handleChange={this.handleChange}/>
           <button onClick={this.createAndSaveMeme}>Save Meme</button>
@@ -51,8 +55,10 @@ class App extends Component {
             memeRef={this.finalMeme}
             header={header}
             headerColor={headerColor}
+            headerFont={headerFont}
             footer={footer}
             footerColor={footerColor}
+            footerFont={footerFont}
             url={url} />
 
         </div>
