@@ -25,7 +25,8 @@ export default class MemeApp extends Component {
     this.setState({ [target.name]: target.value });
   }
 
-  generateMeme = () => {
+  generateMeme = event => {
+    console.log('this.memeRef', this.memeRef.current);
     event.preventDefault();
     domToImage.toPng(this.memeRef.current)
       .then(img => {

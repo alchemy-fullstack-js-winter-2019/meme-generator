@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 function DisplayMeme({ memeRef, header, headerColor, footer, footerColor, imgUrl }) {
   return (
-    <div rev={memeRef}>
+    <div ref={memeRef}>
       <h2 style={{ color: `${headerColor}` }}>{header}</h2>
       <img src={imgUrl}/>
       <h4 style={{ color: `${footerColor}` }}>{footer}</h4>
