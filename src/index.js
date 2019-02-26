@@ -1,10 +1,11 @@
 import React from 'react';
-import { render } from 'react-dom';
-// import App from './components/App';
-import Demo from './components/Demo';
+import { render } from 'react-dom'; 
+// import Demo from './components/Demo';
+import App from './components/App';
+
 
 // render allows us to append a child
 render(
-  <Demo />,
+  <App />,
   document.getElementById('root')
 );
