@@ -1,0 +1,30 @@
+div {
+  height: 500px;
+  width: 500;
+}
+
+img {
+  height: 100%;
+}
+
+.header {
+  text-align: center;
+  position: relative; 
+  top: 75px; 
+  font-size: 3em;
+  margin: 0px
+}
+
+.footer{
+  text-align: center;
+  position: relative; 
+  bottom: 75px; 
+  font-size: 3em;
+  margin: 0px;
+}
+
+
+
+
+
+
