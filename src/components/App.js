@@ -13,7 +13,7 @@ export default class App extends PureComponent {
 
   render() {
     return (
-      <>
+      <div>
         <h1>Meme Generator</h1>
         <form>
           <label>Upload Image</label>
@@ -30,8 +30,7 @@ export default class App extends PureComponent {
 
           <button>Save MEME</button>
         </form>
-       
-      </>
+      </div>
     );
   }
 }

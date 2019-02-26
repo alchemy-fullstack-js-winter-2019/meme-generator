@@ -1,0 +1,19 @@
+h1 {
+  color: black;
+  text-align: center;
+  background-color: greenyellow;
+}
+
+form {
+  font-family: impact;
+  
+  label{
+    color: black;
+  }
+  button {
+    color: blue;
+  }
+  div {
+    text-align: center
+  }
+}

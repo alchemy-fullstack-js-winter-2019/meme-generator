@@ -42,9 +42,6 @@ export default class MemeApp extends Component {
       footerColor } = this.state;
     return (
       <>
-      <h1>
-        MEME GENERATOR
-      </h1>
         <Controls 
           header={header} 
           footer={footer} 

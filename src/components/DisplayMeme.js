@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './DisplayMeme.css';
+import styles from '../css/DisplayMeme.css';
 
 function DisplayMeme({ memeRef, header, headerColor, footer, footerColor, imgUrl }) {
   return (

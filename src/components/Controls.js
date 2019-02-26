@@ -1,19 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from '../css/Controls.css';
 
 function Controls({ header, headerColor, footer, footerColor, imgUrl, onChange, onSubmit }) {
   return (
-    <form onSubmit={onSubmit}>
-      <label>Header</label>
-      <TextControl name="header" text={header} color={headerColor}  onChange={onChange} />
+    <form onSubmit={onSubmit} className={styles.form}>
+      <h1 className={styles.header}>
+        MEME GENERATOR
+      </h1>
+      <div>
+        <label>Header</label>
+        <TextControl name="header" text={header} color={headerColor}  onChange={onChange} />
 
-      <label>Footer</label>
-      <TextControl name="footer" text={footer} color={footerColor}  onChange={onChange} />
+        <label>Footer</label>
+        <TextControl name="footer" text={footer} color={footerColor}  onChange={onChange} />
 
-      <label>Image URL</label>
-      <input type="url" name="imgUrl" value={imgUrl} onChange={onChange} />
+        <label>Image URL</label>
+        <input type="url" name="imgUrl" value={imgUrl} onChange={onChange} />
 
-      <button type="submit">Create Meme</button>
+        <button type="submit">Create Meme</button>
+
+      </div>
     </form>
   );
 }
