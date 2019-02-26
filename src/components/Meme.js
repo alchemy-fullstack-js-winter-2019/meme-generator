@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import domToImage from 'dom-to-image';
 import fileSaver from 'file-saver';
 import DisplayMeme from './DisplayMeme';

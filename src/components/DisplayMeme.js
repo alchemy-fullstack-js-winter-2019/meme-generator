@@ -1,12 +1,13 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './DisplayMeme.css';
 
 function DisplayMeme({ memeRef, header, headerColor, footer, footerColor, imgUrl }) {
   return (
-    <div ref={memeRef}>
-      <h2 style={{ color: `${headerColor}` }}>{header}</h2>
+    <div ref={memeRef} styles={styles.div}>
+      <h2 style={{ color: `${headerColor}` }} className={styles.header}>{header}</h2>
       <img src={imgUrl}/>
-      <h4 style={{ color: `${footerColor}` }}>{footer}</h4>
+      <h2 style={{ color: `${footerColor}` }} className={styles.footer}>{footer}</h2>
     </div>
   );
 }
