@@ -1,0 +1,19 @@
+img {
+  width: 1300px;
+  padding:70px;
+  background-color:orangered;
+}
+
+.header {
+  color: greenyellow;
+  position: relative;
+  top: 90px;
+  font-size: 35px;
+}
+
+.footer {
+  color: yellowgreen;
+  position: relative;
+  bottom: 75px;
+  font-size: 25px;
+}
