@@ -23,13 +23,13 @@ function MemeDisplay({ header, headerColor, headerFont, img, footer, footerColor
 }
 
 MemeDisplay.propTypes = {
-  header: PropTypes.string.isRequired,
-  headerColor: PropTypes.string.isRequired,
-  headerFont: PropTypes.string.isRequired,
-  img: PropTypes.string.isRequired,
-  footer: PropTypes.string.isRequired,
-  footerColor: PropTypes.string.isRequired,
-  footerFont: PropTypes.string.isRequired
+  header: PropTypes.string,
+  headerColor: PropTypes.string,
+  headerFont: PropTypes.string,
+  img: PropTypes.string,
+  footer: PropTypes.string,
+  footerColor: PropTypes.string,
+  footerFont: PropTypes.string
 };
 
 export default MemeDisplay;

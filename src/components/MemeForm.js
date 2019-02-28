@@ -21,13 +21,13 @@ function MemeForm({ header, headerColor, headerFont, img, footer, footerColor, f
 }
 
 MemeForm.propTypes = {
-  img: PropTypes.string.isRequired,
-  header: PropTypes.string.isRequired,
-  headerColor: PropTypes.string.isRequired,
-  headerFont: PropTypes.string.isRequired,
-  footer: PropTypes.string.isRequired,
-  footerColor: PropTypes.string.isRequired,
-  footerFont: PropTypes.string.isRequired,
+  img: PropTypes.string,
+  header: PropTypes.string,
+  headerColor: PropTypes.string,
+  headerFont: PropTypes.string,
+  footer: PropTypes.string,
+  footerColor: PropTypes.string,
+  footerFont: PropTypes.string,
   handleChange: PropTypes.func.isRequired,
   saveImage: PropTypes.func.isRequired
 };
