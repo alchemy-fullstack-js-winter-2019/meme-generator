@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Styles.css';
 
 
 function DisplayMeme({ memeRef, header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl }) {
@@ -18,7 +19,7 @@ function DisplayMeme({ memeRef, header, headerColor, headerFont, footer, footerC
   
   return (
     <div ref={memeRef}>
-      <h2 style={headerStyle}>{header}</h2>
+      <h2 className={styles.headerStyle} style={headerStyle}>{header}</h2>
       <img src={imgUrl} />
       <h2 style={footerStyle}>{footer}</h2>
     </div>

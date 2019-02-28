@@ -1,21 +1,24 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './Styles.css';
 
 function Controls({ header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl, onChange, onSubmit }) {
   return (
-    <form onSubmit={onSubmit}>
-      <div>
+    <form className={styles.form} onSubmit={onSubmit}>
+      <div className={styles.header}>
         <label> Header
           <TextControl name="header" text={header} color={headerColor} font={headerFont} onChange={onChange} />
         </label>
       </div>
-      <div>
+      <div className={styles.footer}>
         <label>Footer
           <TextControl name="footer" text={footer} color={footerColor} font={footerFont} onChange={onChange} />
         </label>
       </div>
-      <label>URL</label>
-      <input type="url" name="imgUrl" value={imgUrl} onChange={onChange} />
+      <div className={styles.url}>
+        <label>URL</label>
+        <input type="url" name="imgUrl" value={imgUrl} onChange={onChange} />
+      </div>
       <button type="submit">Save Meme</button>
     </form>
   );

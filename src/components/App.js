@@ -3,6 +3,7 @@ import domToImage from 'dom-to-image';
 import Controls from './Controls';
 import DisplayMeme from './DisplayMeme';
 import fileSaver from 'file-saver';
+import styles from './Styles.css';
 
 export default class App extends Component {
   constructor(props) {
@@ -24,7 +25,7 @@ generateMeme = () => {
   event.preventDefault();
   domToImage.toPng(this.memeRef.current)
     .then(imgUrl => {
-      fileSaver.saveAs({ imgUrl });
+      fileSaver.saveAs(imgUrl);
     });
 };
 
@@ -37,6 +38,7 @@ render() {
   const { header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl } = this.state;
   return (
       <>
+      <div className={styles.display}>
         <h1>Meme generator</h1>
         <Controls 
           header={header}
@@ -48,19 +50,20 @@ render() {
           imgUrl={imgUrl}
           onChange={this.handleChange}
           onSubmit={this.generateMeme}
-
         />
         <DisplayMeme 
           memeRef={this.memeRef}
           header={header}
-          headerColor={header}
+          headerColor={headerColor}
           headerFont={headerFont}
           footer={footer}
           footerColor={footerColor}
           footerFont={footerFont}
           imgUrl={imgUrl}
         />
+      </div>
       </>
+
   );
 }
 }
