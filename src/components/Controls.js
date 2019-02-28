@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styles from './Styles.css';
 
-function Controls({ header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl, onChange, onSubmit }) {
+function Controls({ header, headerColor, headerFont, footer, footerColor, footerFont, imgUrl, onChange }) {
   return (
-    <form className={styles.form} onSubmit={onSubmit}>
+    <form className={styles.form}>
       <div className={styles.header}>
         <label> Header
           <TextControl name="header" text={header} color={headerColor} font={headerFont} onChange={onChange} />
@@ -19,7 +19,6 @@ function Controls({ header, headerColor, headerFont, footer, footerColor, footer
         <label>URL</label>
         <input type="url" name="imgUrl" value={imgUrl} onChange={onChange} />
       </div>
-      <button type="submit">Save Meme</button>
     </form>
   );
 }
@@ -33,7 +32,6 @@ Controls.propTypes = {
   footerFont: PropTypes.string.isRequired,
   imgUrl: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired
 };
 
 function TextControl({ name, text, color, font, onChange }) {

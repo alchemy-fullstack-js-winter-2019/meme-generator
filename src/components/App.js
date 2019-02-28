@@ -49,8 +49,8 @@ render() {
           footerFont={footerFont}
           imgUrl={imgUrl}
           onChange={this.handleChange}
-          onSubmit={this.generateMeme}
         />
+        <button onSubmit={this.generateMeme}>Save</button>
         <DisplayMeme 
           memeRef={this.memeRef}
           header={header}
