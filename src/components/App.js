@@ -11,8 +11,10 @@ export default class App extends PureComponent {
   state = {
     header: 'I LUV REAL FOODS', 
     headerColor: '',
+    headerFont: '',
     footer: 'NO ADDED INGREDIENTS',
     footerColor: '', 
+    footerFont: '',
     // img: ''
     img: 'https://www.castlighthealth.com/wp-content/uploads/2018/03/HealthyFood.jpg'
   };
@@ -31,16 +33,18 @@ export default class App extends PureComponent {
   };
 
   render() {
-    const { header, headerColor, footer, footerColor, img } = this.state;
+    const { header, headerColor, headerFont, footer, footerColor, footerFont, img } = this.state;
 
     return (
       <>
         <MemeForm 
           header={header}
           headerColor={headerColor}
+          headerFont={headerFont}
           img={img}
           footer={footer}
           footerColor={footerColor}
+          footerFont={footerFont}
           handleChange={this.handleChange}
           saveImage={this.saveImage}
         />
@@ -48,9 +52,11 @@ export default class App extends PureComponent {
           <MemeDisplay
             header={header}
             headerColor={headerColor}
+            headerFont={headerFont}
             img={img}
             footer={footer}
             footerColor={footerColor}
+            footerFont={footerFont}
           />  
         </div>
       </>
