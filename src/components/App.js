@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import fileSaver from 'file-saver';
 import domToImage from 'dom-to-image';
 import MemeForm from './MemeForm';
+import MemeDisplay from './MemeDisplay';
 
 export default class App extends PureComponent {
   
@@ -37,11 +38,12 @@ export default class App extends PureComponent {
           handleChange={this.handleChange}
           saveImage={this.saveImage}
         />
-
         <div id="meme">
-          <h2><pre>{header}</pre></h2>
-          {img && <img src={img} />}
-          <h2>{footer}</h2>
+          <MemeDisplay
+            header={header}
+            img={img}
+            footer={footer}
+          />  
         </div>
       </>
     );
