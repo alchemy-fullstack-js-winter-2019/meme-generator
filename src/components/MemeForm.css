@@ -1,0 +1,12 @@
+form {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+}
+button {
+  border-radius: 30px;
+  color: #008000;
+  background-color: orangered;
+  font-weight: bold;
+  border: 5px;
+}

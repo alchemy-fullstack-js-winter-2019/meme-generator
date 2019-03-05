@@ -1,0 +1,6 @@
+:global(*) {
+  body {
+    text-align: center;
+    background-color: yellowgreen
+  }
+}
