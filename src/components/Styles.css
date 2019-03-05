@@ -1,0 +1,17 @@
+.display {
+padding: 30px;
+}
+
+.headerStyle {
+  display: flex;
+}
+
+.header {
+  padding: 10px;
+}
+.footer {
+  padding: 10px;
+}
+.url {
+  padding: 10px;
+}
