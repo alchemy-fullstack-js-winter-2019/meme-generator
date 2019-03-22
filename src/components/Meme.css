@@ -1,0 +1,47 @@
+img {
+  width: 250px;
+  padding: 40px;
+  border: 2px solid rgb(41, 1, 8);
+  background-color: rgb(77, 5, 5);
+}
+
+.header {
+  position: relative;
+  top: 60px;
+  font-size: 25px;
+}
+
+.footer {
+  color: white;
+  position: relative;
+  bottom: 60px;
+  font-size: 25px;
+}
+
+.red {
+  color: red;
+}
+
+.white {
+  color: white;
+}
+
+.black {
+  color: black;
+}
+
+.blue {
+  color: blue;
+}
+
+.times {
+  font-family: "Time New Roman"
+}
+
+.arial {
+  font-family: "Arial"
+}
+
+.courier {
+  font-family: "Courier New"
+}
